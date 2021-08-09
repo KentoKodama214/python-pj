@@ -6,7 +6,7 @@ CREATE TABLE SDG_LabourIncome(
   indicator VARCHAR(100),
   indicator_label VARCHAR(1000),
   time INT,
-  obs_value NUMERIC,
+  obs_value DECIMAL(20,3),
   obs_status VARCHAR(10),
   obs_status_label VARCHAR(100)
 );

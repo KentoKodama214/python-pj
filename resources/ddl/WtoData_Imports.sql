@@ -22,5 +22,5 @@ CREATE TABLE WtoData_Import(
   ValueFlagCode VARCHAR(10),
   ValueFlag VARCHAR(100),
   TextValue VARCHAR(100),
-  Value NUMERIC
+  Value DECIMAL(20,3)
 );

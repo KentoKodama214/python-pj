@@ -4,9 +4,9 @@ CREATE TABLE WPP2019_TotalPopulationBySex(
   VarID INT,
   Variant VARCHAR(100),
   Time INT,
-  MidPeriod NUMERIC,
+  MidPeriod DECIMAL(20,3),
   PopMale INT,
   PopFemale INT,
   PopTotal INT,
-  PopDensity NUMERIC
+  PopDensity DECIMAL(20,3)
 );

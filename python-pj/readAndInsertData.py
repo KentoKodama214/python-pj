@@ -62,12 +62,17 @@ try:
     df5['Subject Notes'].fillna('', inplace=True)
     df5['Scale'].fillna('', inplace=True)
     df5['Country/Series-specific Notes'].fillna('', inplace=True)
-    df5_column_list = [s for s in df5.columns.values.tolist() if re.match('[0-9]{4}', s)]
+    df5_gdp_year_column_list = [s for s in df5.columns.values.tolist() if re.match('[0-9]{4}', s)]
+    df5_parameter_column_list = [s for s in df5.columns.values.tolist() if s not in df5_gdp_year_column_list]
     
-    for column in df5_column_list:
+    cols = df5_parameter_column_list + ['Year', 'GDP']
+    df5_norm = pd.DataFrame(data=[], index=None, columns=cols, dtype=None, copy=False)
+    
+    for column in df5_gdp_year_column_list:
         df5[column].fillna('0', inplace=True)
         df5[column] = df5[column].str.replace(',', '')
         df5[column] = df5[column].str.replace('--', '0')
+        df5_norm = df5_norm.append(df5[df5_parameter_column_list].assign(Year=column).assign(GDP=df5[column]))
 
     with conn.cursor() as cursor:
         # WPP Total Population
@@ -89,6 +94,10 @@ try:
         # WEO GDP
         cursor.execute(settings.delete_weo_gdp)
         cursor.executemany(settings.insert_weo_gdp, df5.values.tolist())
+        
+        # WEO GDP Normalization
+        cursor.execute(settings.delete_weo_gdp_norm)
+        cursor.executemany(settings.insert_weo_gdp_norm, df5_norm[df5_norm['GDP']!='0'].values.tolist())
         conn.commit()
 finally:
     conn.close()
