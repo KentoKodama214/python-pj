@@ -7,6 +7,7 @@ password = 'root'
 
 # Path
 resource_path = './resources/data/'
+sql_path = './resources/sql/'
 
 # FileName
 wpp_total_population_by_sex = 'WPP2019_TotalPopulationBySex.zip'
@@ -28,3 +29,7 @@ delete_sdg_labourincome = 'DELETE FROM sdg_labourincome'
 insert_sdg_labourincome = 'INSERT INTO sdg_labourincome VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
 delete_weo_gdp_norm = 'DELETE FROM weo_gdp_norm'
 insert_weo_gdp_norm = 'INSERT INTO weo_gdp_norm VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+
+f = open(sql_path + 'selectAnalysisBasicData.sql', 'r')
+select_analysis_basic_data = f.read()
+f.close()
