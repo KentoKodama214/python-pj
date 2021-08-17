@@ -1,3 +1,4 @@
+CREATE VIEW analysis_data AS
 WITH 
 	Population   AS (SELECT Location as Country, Time as Year, PopMale, PopFemale, PopTotal, PopDensity from WPP2019_TotalPopulationBySex WHERE Variant='Medium'),
 	LabourIncome AS (SELECT ref_area_label as Country, time as Year, obs_value as LabourIncome from SDG_LabourIncome),
@@ -13,7 +14,6 @@ WITH
 	PPPSH        AS (SELECT Country, year as Year, GDP as PPPSH        from WEO_GDP_norm where WEOSubjectCode='PPPSH'),
 	PPPEX        AS (SELECT Country, year as Year, GDP as PPPEX        from WEO_GDP_norm where WEOSubjectCode='PPPEX'),	
 	NGSD_NGDP    AS (SELECT Country, year as Year, GDP as NGSD_NGDP    from WEO_GDP_norm where WEOSubjectCode='NGSD_NGDP'),
-	BCA          AS (SELECT Country, year as Year, GDP as BCA          from WEO_GDP_norm where WEOSubjectCode='BCA'),
 	BCA_NGDPD    AS (SELECT Country, year as Year, GDP as BCA_NGDPD    from WEO_GDP_norm where WEOSubjectCode='BCA_NGDPD'),
 	PCPI         AS (SELECT Country, year as Year, GDP as PCPI         from WEO_GDP_norm where WEOSubjectCode='PCPI'),
 	PCPIPCH      AS (SELECT Country, year as Year, GDP as PCPIPCH      from WEO_GDP_norm where WEOSubjectCode='PCPIPCH'),
@@ -42,7 +42,6 @@ SELECT
 	PPPSH.PPPSH,
 	PPPEX.PPPEX,
 	NGSD_NGDP.NGSD_NGDP,
-	BCA.BCA,
 	BCA_NGDPD.BCA_NGDPD,
 	PCPI.PCPI,
 	PCPIPCH.PCPIPCH,
@@ -70,7 +69,6 @@ FROM Population
 	LEFT OUTER JOIN PPPSH        USING(Country, Year)
 	LEFT OUTER JOIN PPPEX        USING(Country, Year)	
 	LEFT OUTER JOIN NGSD_NGDP    USING(Country, Year)
-	LEFT OUTER JOIN BCA          USING(Country, Year)
 	LEFT OUTER JOIN BCA_NGDPD    USING(Country, Year)
 	LEFT OUTER JOIN PCPI         USING(Country, Year)
 	LEFT OUTER JOIN PCPIPCH      USING(Country, Year)

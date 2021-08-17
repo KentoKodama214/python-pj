@@ -75,29 +75,64 @@ try:
         df5_norm = df5_norm.append(df5[df5_parameter_column_list].assign(Year=column).assign(GDP=df5[column]))
 
     with conn.cursor() as cursor:
+        cursor.execute("SHOW TABLES;")
+        tables = cursor.fetchall()
+        table_list = []
+        for table in tables:
+            table_list.append(table['Tables_in_python-pj'])
+        
         # WPP Total Population
-        cursor.execute(settings.delete_wpp_total_population_by_sex)
+        if("WPP2019_TotalPopulationBySex" in table_list):
+            cursor.execute(settings.truncate_wpp_total_population_by_sex)
+        else:
+            cursor.execute(settings.create_wpp_total_population_by_sex)
         cursor.executemany(settings.insert_wpp_total_population_by_sex, df.values.tolist())
     
         # SDG Labour Income
-        cursor.execute(settings.delete_sdg_labourincome)
+        if("SDG_LabourIncome" in table_list):
+            cursor.execute(settings.truncate_sdg_labourincome)
+        else:
+            cursor.execute(settings.create_sdg_labourincome)
         cursor.executemany(settings.insert_sdg_labourincome, df2.values.tolist())
         
         # WTO Imports
-        cursor.execute(settings.delete_wto_imports)
+        if("WtoData_Import" in table_list):
+            cursor.execute(settings.truncate_wto_imports)
+        else:
+            cursor.execute(settings.create_wto_imports)
         cursor.executemany(settings.insert_wto_imports, df3.values.tolist())
         
         # WTO Exports
-        cursor.execute(settings.delete_wto_exports)
+        if("WtoData_Export" in table_list):
+            cursor.execute(settings.truncate_wto_exports)
+        else:
+            cursor.execute(settings.create_wto_exports)
         cursor.executemany(settings.insert_wto_exports, df4.values.tolist())
         
         # WEO GDP
-        cursor.execute(settings.delete_weo_gdp)
+        if("WEO_GDP" in table_list):
+            cursor.execute(settings.truncate_weo_gdp)
+        else:
+            cursor.execute(settings.create_weo_gdp)
         cursor.executemany(settings.insert_weo_gdp, df5.values.tolist())
         
         # WEO GDP Normalization
-        cursor.execute(settings.delete_weo_gdp_norm)
+        if("WEO_GDP_norm" in table_list):
+            cursor.execute(settings.truncate_weo_gdp_norm)
+        else:
+            cursor.execute(settings.create_weo_gdp_norm)
         cursor.executemany(settings.insert_weo_gdp_norm, df5_norm[df5_norm['GDP']!='0'].values.tolist())
+        
+        # countries view
+        if("countries" in table_list):
+            cursor.execute("DROP VIEW countries;")    
+        cursor.execute(settings.create_country_view)
+        
+        # analysis data view
+        if("analysis_data" in table_list):
+            cursor.execute("DROP VIEW analysis_data;")    
+        cursor.execute(settings.create_analysis_data_view)
+        
         conn.commit()
 finally:
     conn.close()
