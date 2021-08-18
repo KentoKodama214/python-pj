@@ -75,7 +75,7 @@ try:
         df5_norm = df5_norm.append(df5[df5_parameter_column_list].assign(Year=column).assign(GDP=df5[column]))
 
     with conn.cursor() as cursor:
-        cursor.execute("SHOW TABLES;")
+        cursor.execute("SHOW TABLES FROM `" + settings.db + "`;")
         tables = cursor.fetchall()
         table_list = []
         for table in tables:
