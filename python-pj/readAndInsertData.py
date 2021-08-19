@@ -79,7 +79,7 @@ try:
         tables = cursor.fetchall()
         table_list = []
         for table in tables:
-            table_list.append(table['Tables_in_python-pj'])
+            table_list.append(table['Tables_in_' + settings.db])
         
         # WPP Total Population
         if("WPP2019_TotalPopulationBySex" in table_list):

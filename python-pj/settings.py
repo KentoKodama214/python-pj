@@ -1,7 +1,7 @@
 # MySQL
 host = 'localhost'
-user = 'root'
 db = 'python-pj'
+user = 'root'
 password = 'root'
 
 # Path
