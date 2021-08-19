@@ -4,7 +4,6 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-import numpy as np
 import pandas as pd
 import sys
 import settings
@@ -12,7 +11,6 @@ import re
 import csv
 import zipfile
 import pymysql.cursors
-from sqlalchemy import create_engine
 
 __author__ = "kodamakento"
 argvs = sys.argv
