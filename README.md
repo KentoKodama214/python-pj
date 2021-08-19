@@ -2,11 +2,12 @@
 pythonでのデータ分析・機械学習を実践するためのリポジトリ
 
 ## このプロジェクトの背景・目的
-[こちら]（https://github.com/KentoKodama214/python-pj/wiki）にまとめています
+[こちら](https://github.com/KentoKodama214/python-pj/wiki)にまとめています。
 
 ## 環境構築
 ### ライブラリ等のインストール
 |名称|バージョン|
+|---|---|
 |python|3.9.6|
 |MySQL|8.0.26|
 
