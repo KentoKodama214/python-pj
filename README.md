@@ -21,7 +21,9 @@ db = 'データベース名'
 user = 'ユーザ名'
 password = 'パスワード'
 ```
-4. readAndInsertData.pyを実行してください。実行後、3で指定したデータベースにテーブル・ビューなどが作成され、データがインポートされます。
+4. python-pjへ移動し、readAndInsertData.pyを実行してください。  
+実行後、3で指定したデータベースにテーブル・ビューなどが作成され、データがインポートされます。
 ```
-python readAndInsertData.py
+$ cd python-pj
+$ python readAndInsertData.py
 ```
