@@ -39,6 +39,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+        
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
             confmat            = confusion_matrix(y, y_pred)
@@ -82,6 +87,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+        
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -124,6 +134,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -166,6 +181,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -208,6 +228,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -250,6 +275,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -291,6 +321,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -332,6 +367,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -373,6 +413,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -414,6 +459,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -456,6 +506,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -498,6 +553,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -540,6 +600,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -582,6 +647,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -624,6 +694,11 @@ class ClassificationUtil:
             ROC-AUCスコア
         explained_variance: float or ndarray of floats
             説明変数分類スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:

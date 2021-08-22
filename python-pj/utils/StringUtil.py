@@ -20,6 +20,11 @@ class StringUtil:
         Returns
         ----------
         date/datetime/other
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -69,6 +74,11 @@ class StringUtil:
         ----------
         date: date
             日付
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -105,6 +115,11 @@ class StringUtil:
         ----------
         datetime: datetime
             日時
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
             date_pattern1 = re.compile('(\d{4})/(\d{1,2})/(\d{1,2}) (\d{2}):(\d{2}):(\d{2})')
@@ -144,6 +159,11 @@ class StringUtil:
             月
         day: int
             日
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -193,6 +213,11 @@ class StringUtil:
             分
         second: int
             秒
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -232,6 +257,11 @@ class StringUtil:
         ----------
         weekday: string
             曜日
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:

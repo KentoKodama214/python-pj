@@ -24,6 +24,11 @@ class FileUtil:
         Returns
         ----------
         TRUE/FALSE
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -49,6 +54,11 @@ class FileUtil:
         ----------
         numpy_data: ndarray
             numpyデータ
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -77,6 +87,11 @@ class FileUtil:
         ----------
         numpy_data: ndarray
             numpyデータ
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -100,6 +115,11 @@ class FileUtil:
         ----------
         pandas_data: DataFrame
             pandasデータ
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -125,6 +145,11 @@ class FileUtil:
         ----------
         numpy_data: ndarray
             numpyデータ
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -156,6 +181,11 @@ class FileUtil:
             numpyデータ
         filepath: string
             ファイルパス
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -177,6 +207,11 @@ class FileUtil:
             numpyデータ
         filepath: string
             ファイルパス
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -196,6 +231,11 @@ class FileUtil:
             pandas出力データ
         filepath: string
             ファイルパス
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:

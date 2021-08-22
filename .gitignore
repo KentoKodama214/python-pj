@@ -1,2 +1,5 @@
 ## vscode
 .vscode/
+
+## __pycache__
+python-pj/__pycache__/

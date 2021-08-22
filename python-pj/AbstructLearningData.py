@@ -14,14 +14,35 @@ import traceback
 class AbstructLearningData:
     """
     機械学習データの抽象クラス
+    
+    Attributes
+    ----------
+    __X: ndarray
+        説明変数
+    __X_train: ndarray
+        学習データの説明変数
+    __X_test: ndarray
+        テストデータの説明変数
+    __y: ndarray
+        目的変数
+    __y_train: ndarray
+        学習データの目的変数
+    __y_test: ndarray
+        テストデータの目的変数
+    __features_name: ndarray
+        説明変数の名称のベクトル
     """
     
     def __init__(self, X, y):
         """
         コンストラクタ
-        :param X: 説明変数
-        :param y: 目的変数
-        :param features_name: 説明変数の名称のベクトル
+        
+        Parameters
+        ----------
+        X: ndarray
+            説明変数
+        y: ndarray
+            目的変数
         """
         self.__X = X
         self.__y = y
@@ -36,18 +57,26 @@ class AbstructLearningData:
 
     def imputation(self, st):
         """
-        列ごとに欠損値に対して方法を指定して補完する関数
+        列ごとに欠損値に対して方法を指定して補完する
         
         Parameters
         ----------
         st: string
             補完方法。以下のURLを参照
             http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Imputer.html
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
-        
-        imp = Imputer(missing_values = 'NaN', strategy = st, axis = 0)
-        imp.fit(self.__X)
-        self.__X = imp.transform(self.__X)
+        try:
+            imp = Imputer(missing_values = 'NaN', strategy = st, axis = 0)
+            imp.fit(self.__X)
+            self.__X = imp.transform(self.__X)
+        except ValueError:
+            print("列ごとに欠損値に対して方法を指定して補完する際に例外が発生しました。")
+            traceback.print_exc()
 
     def split(self, rate):
         """
@@ -57,6 +86,11 @@ class AbstructLearningData:
         ----------
         rate: float
             trainとtestの比率
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
             self.__X_train, self.__X_test, self.__y_train, self.__y_test = train_test_split(self.__X, self.__y, test_size = rate, random_state = 0)
@@ -72,6 +106,11 @@ class AbstructLearningData:
         ----------
         d: int
             組合せの次数
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
             n = len(self.__X)

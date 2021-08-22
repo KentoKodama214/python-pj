@@ -20,6 +20,11 @@ class DateUtil:
         ----------
         math.sin(): float
             sin変換した春
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -42,6 +47,11 @@ class DateUtil:
         ----------
         math.sin(): float
             sin変換した夏
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -64,6 +74,11 @@ class DateUtil:
         ----------
         math.sin(): float
             sin変換した秋
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -86,6 +101,11 @@ class DateUtil:
         ----------
         math.sin(): float
             sin変換した冬
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -108,6 +128,11 @@ class DateUtil:
         ----------
         season: string
             季節
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -137,6 +162,11 @@ class DateUtil:
         ----------
         day of week: string
             曜日
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -164,6 +194,11 @@ class DateUtil:
         ----------
         math.sin(): float
             sin変換した月齢
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:

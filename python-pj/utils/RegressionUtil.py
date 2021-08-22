@@ -29,6 +29,11 @@ class RegressionUtil:
         ----------
         mean_squared_error: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -52,6 +57,11 @@ class RegressionUtil:
         ----------
         explained_variance_score: float
             説明変数回帰スコア
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -82,6 +92,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         
         try:
@@ -119,6 +134,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -156,6 +176,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -193,6 +218,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -230,6 +260,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -265,6 +300,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -306,6 +346,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -341,6 +386,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -376,6 +426,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -411,6 +466,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -446,6 +506,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -481,6 +546,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -516,6 +586,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -551,6 +626,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
@@ -586,6 +666,11 @@ class RegressionUtil:
             説明変数回帰スコア
         mse: float
             平均二条誤差
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
 
         try:
