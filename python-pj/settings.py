@@ -67,3 +67,4 @@ ddl_countries_view.close()
 ddl_analysis_data_view = open(ddl_path + 'AnalysisDataView.sql', 'r')
 create_analysis_data_view = ddl_analysis_data_view.read()
 ddl_analysis_data_view.close()
+select_analysis_data = 'SELECT * FROM analysis_data'
