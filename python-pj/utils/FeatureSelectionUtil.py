@@ -3,17 +3,9 @@
 # and open the template in the editor.
 
 import numpy as np
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import SelectPercentile
-from sklearn.feature_selection import SelectFpr
-from sklearn.feature_selection import SelectFdr
-from sklearn.feature_selection import SelectFwe
-from sklearn.feature_selection import f_regression
-from sklearn.feature_selection import f_classif
-from sklearn.feature_selection import RFECV
+from sklearn.feature_selection import SelectKBest, SelectPercentile, SelectFpr, SelectFdr, SelectFwe, RFECV, SelectFromModel, f_regression, f_classif
 from sklearn.svm import SVR, SVC
 from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.feature_selection import SelectFromModel
 from sklearn.linear_model import LassoCV, LogisticRegressionCV
 
 class FeatureSelectionUtil:
