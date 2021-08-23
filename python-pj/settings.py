@@ -1,3 +1,5 @@
+import logging
+
 # MySQL
 host = 'localhost'
 db = 'python-pj'
@@ -14,6 +16,10 @@ weo_gdp = 'WEOApr2021all.zip'
 wto_imports = 'WtoDataCSV_imports.zip'
 wto_exports = 'WtoDataCSV_exports.zip'
 sdg_labour_income = 'SDG_1041_NOC_RT_A.zip'
+
+# Execution Setting
+log_path  = None
+log_level = logging.DEBUG
 
 # DDL
 # WPP_TotalPopulationBySex

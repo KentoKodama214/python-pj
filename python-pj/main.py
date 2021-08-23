@@ -5,10 +5,20 @@
 # and open the template in the editor.
 
 import sys
-import AbstructAnalysisData
+import AnalysisData
+import settings
+import logging
+from utils import LoggingUtil
 
 __author__ = "kodamakento"
 argvs = sys.argv
 argc = len(argvs)
 
-analysisData = AbstructAnalysisData.AbstructAnalysisData()
+def main():
+    LoggingUtil.LoggingUtil().set_config(filepath=settings.log_path, level=settings.log_level)
+    logging.debug("Start")
+    analysisData = AnalysisData.AnalysisData()
+    logging.debug("End")
+
+if __name__ == '__main__':
+    main()
