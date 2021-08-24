@@ -17,22 +17,22 @@ argvs = sys.argv
 argc = len(argvs)
     
 try:
-    conn = pymysql.connect(host=settings.host,
-                    user=settings.user,
-                    db=settings.db,
+    conn = pymysql.connect(host=settings.HOST,
+                    user=settings.USER,
+                    db=settings.DB,
                     charset='utf8',
                     cursorclass=pymysql.cursors.DictCursor)
     
     # WPP Total Population
-    df = pd.read_csv(settings.resource_path + settings.wpp_total_population_by_sex, delimiter=',', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
+    df = pd.read_csv(settings.RESOURCE_PATH + settings.WPP_TOTAL_POPULATION_BY_SEX, delimiter=',', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
     df.fillna({'PopMale':df['PopTotal']/2, 'PopFemale':df['PopTotal']/2, 'PopDensity':0}, inplace=True)
 
     # SDG Labour Income
-    df2 = pd.read_csv(settings.resource_path + settings.sdg_labour_income, delimiter=',', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
+    df2 = pd.read_csv(settings.RESOURCE_PATH + settings.SDG_LABOUR_INCOME, delimiter=',', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
     df2.fillna({'obs_status':'', 'obs_status.label':''}, inplace=True)
 
     # WTO Imports
-    with zipfile.ZipFile(settings.resource_path + settings.wto_imports, 'r') as zip: 
+    with zipfile.ZipFile(settings.RESOURCE_PATH + settings.WTO_IMPORTS, 'r') as zip: 
         csvfile = zip.open(zip.namelist()[0], 'r')
         df3 = pd.read_csv(csvfile, encoding_errors='ignore', delimiter=',', memory_map=True)
         df3['Reporting Economy ISO3A Code'].fillna('', inplace=True)
@@ -43,7 +43,7 @@ try:
         df3['Value'].fillna('', inplace=True)
     
     # WTO Exports
-    with zipfile.ZipFile(settings.resource_path + settings.wto_exports, 'r') as zip: 
+    with zipfile.ZipFile(settings.RESOURCE_PATH + settings.WTO_EXPORTS, 'r') as zip: 
         csvfile = zip.open(zip.namelist()[0], 'r')
         df4 = pd.read_csv(csvfile, encoding_errors='ignore', delimiter=',', memory_map=True)
         df4['Reporting Economy ISO3A Code'].fillna('', inplace=True)
@@ -54,7 +54,7 @@ try:
         df4['Value'].fillna('', inplace=True)
 
     # WEO GDP
-    df5 = pd.read_csv(settings.resource_path + settings.weo_gdp, delimiter='\t', encoding_errors='ignore', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
+    df5 = pd.read_csv(settings.RESOURCE_PATH + settings.WEO_GDP, delimiter='\t', encoding_errors='ignore', quoting = csv.QUOTE_ALL, compression='zip', memory_map=True)
     df5.drop('Estimates Start After', axis=1, inplace=True)
     df5.dropna(thresh=2, inplace=True)
     df5['Subject Notes'].fillna('', inplace=True)
@@ -73,63 +73,63 @@ try:
         df5_norm = df5_norm.append(df5[df5_parameter_column_list].assign(Year=column).assign(GDP=df5[column]))
 
     with conn.cursor() as cursor:
-        cursor.execute("SHOW TABLES FROM `" + settings.db + "`;")
+        cursor.execute("SHOW TABLES FROM `" + settings.DB + "`;")
         tables = cursor.fetchall()
         table_list = []
         for table in tables:
-            table_list.append(table['Tables_in_' + settings.db])
+            table_list.append(table['Tables_in_' + settings.DB])
         
         # WPP Total Population
         if("WPP2019_TotalPopulationBySex" in table_list):
-            cursor.execute(settings.truncate_wpp_total_population_by_sex)
+            cursor.execute(settings.TRUNCATE_WPP_TOTAL_POPULATION_BY_SEX)
         else:
-            cursor.execute(settings.create_wpp_total_population_by_sex)
-        cursor.executemany(settings.insert_wpp_total_population_by_sex, df.values.tolist())
+            cursor.execute(settings.CREATE_WPP_TOTAL_POPULATION_BY_SEX)
+        cursor.executemany(settings.INSERT_WPP_TOTAL_POPULATION_BY_SEX, df.values.tolist())
     
         # SDG Labour Income
         if("SDG_LabourIncome" in table_list):
-            cursor.execute(settings.truncate_sdg_labourincome)
+            cursor.execute(settings.TRUNCATE_SDG_LABOUR_INCOME)
         else:
-            cursor.execute(settings.create_sdg_labourincome)
-        cursor.executemany(settings.insert_sdg_labourincome, df2.values.tolist())
+            cursor.execute(settings.CREATE_SDG_LABOUR_INCOME)
+        cursor.executemany(settings.INSERT_SDG_LABOUR_INCOME, df2.values.tolist())
         
         # WTO Imports
         if("WtoData_Import" in table_list):
-            cursor.execute(settings.truncate_wto_imports)
+            cursor.execute(settings.TRUNCATE_WTO_IMPORTS)
         else:
-            cursor.execute(settings.create_wto_imports)
-        cursor.executemany(settings.insert_wto_imports, df3.values.tolist())
+            cursor.execute(settings.CREATE_WTO_IMPORTS)
+        cursor.executemany(settings.INSERT_WTO_IMPORTS, df3.values.tolist())
         
         # WTO Exports
         if("WtoData_Export" in table_list):
-            cursor.execute(settings.truncate_wto_exports)
+            cursor.execute(settings.TRUNCATE_WTO_EXPORTS)
         else:
-            cursor.execute(settings.create_wto_exports)
-        cursor.executemany(settings.insert_wto_exports, df4.values.tolist())
+            cursor.execute(settings.CREATE_WTO_EXPORTS)
+        cursor.executemany(settings.INSERT_WTO_EXPORTS, df4.values.tolist())
         
         # WEO GDP
         if("WEO_GDP" in table_list):
-            cursor.execute(settings.truncate_weo_gdp)
+            cursor.execute(settings.TRUNCATE_WEO_GDP)
         else:
-            cursor.execute(settings.create_weo_gdp)
-        cursor.executemany(settings.insert_weo_gdp, df5.values.tolist())
+            cursor.execute(settings.CREATE_WEO_GDP)
+        cursor.executemany(settings.INSERT_WEO_GDP, df5.values.tolist())
         
         # WEO GDP Normalization
         if("WEO_GDP_norm" in table_list):
-            cursor.execute(settings.truncate_weo_gdp_norm)
+            cursor.execute(settings.TRUNCATE_WEO_GDP_NORM)
         else:
-            cursor.execute(settings.create_weo_gdp_norm)
-        cursor.executemany(settings.insert_weo_gdp_norm, df5_norm[df5_norm['GDP']!='0'].values.tolist())
+            cursor.execute(settings.CREATE_WEO_GDP_NORM)
+        cursor.executemany(settings.INSERT_WEO_GDP_NORM, df5_norm[df5_norm['GDP']!='0'].values.tolist())
         
         # countries view
         if("countries" in table_list):
             cursor.execute("DROP VIEW countries;")    
-        cursor.execute(settings.create_country_view)
+        cursor.execute(settings.CREATE_COUNTRY_VIEW)
         
         # analysis data view
         if("analysis_data" in table_list):
             cursor.execute("DROP VIEW analysis_data;")    
-        cursor.execute(settings.create_analysis_data_view)
+        cursor.execute(settings.CREATE_ANALYSIS_DATA_VIEW)
         
         conn.commit()
 finally:

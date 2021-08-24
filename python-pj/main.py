@@ -15,7 +15,7 @@ argvs = sys.argv
 argc = len(argvs)
 
 def main():
-    LoggingUtil.LoggingUtil().set_config(filepath=settings.log_path, level=settings.log_level)
+    LoggingUtil.LoggingUtil().set_config(filepath=settings.LOG_PATH, level=settings.LOG_LEVEL)
     logging.debug("Start")
     # 分析データのインスタンス生成&読込
     analysisData = AnalysisData.AnalysisData()

@@ -20,14 +20,14 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         コンストラクタでのみ呼び出す
         """
         try:
-            conn = pymysql.connect(host=settings.host,
-                    user=settings.user,
-                    db=settings.db,
+            conn = pymysql.connect(host=settings.HOST,
+                    user=settings.USER,
+                    db=settings.DB,
                     charset='utf8',
                     cursorclass=pymysql.cursors.DictCursor)
         
             with conn.cursor() as cursor:
-                cursor.execute(settings.select_analysis_data)
+                cursor.execute(settings.SELECT_ANALYSIS_DATA)
                 results = cursor.fetchall()
         finally:
             conn.close()
