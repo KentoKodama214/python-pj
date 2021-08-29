@@ -9,6 +9,7 @@ PASSWORD = 'root'
 # Path
 RESOURCE_PATH = './resources/data/'
 DDL_PATH = './resources/ddl/'
+OUTPUT_PATH = './python-pj/'
 
 # FileName
 WPP_TOTAL_POPULATION_BY_SEX = 'WPP2019_TotalPopulationBySex.zip'
@@ -68,6 +69,7 @@ INSERT_WEO_GDP_NORM = 'INSERT INTO weo_gdp_norm VALUES(%s, %s, %s, %s, %s, %s, %
 ddl_countries_view = open(DDL_PATH + 'CountriesView.sql', 'r')
 CREATE_COUNTRY_VIEW = ddl_countries_view.read()
 ddl_countries_view.close()
+SELECT_COUNTRY_VIEW = 'SELECT * FROM countries'
 
 # Analysis Data View
 ddl_analysis_data_view = open(DDL_PATH + 'AnalysisDataView.sql', 'r')

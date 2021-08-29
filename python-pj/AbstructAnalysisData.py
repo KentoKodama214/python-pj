@@ -20,7 +20,7 @@ class AbstructAnalysisData:
         """
         コンストラクタ
         """
-        self.__data = self.__load__()
+        self.__load__()
    
     @abstractclassmethod
     def __load__(self):

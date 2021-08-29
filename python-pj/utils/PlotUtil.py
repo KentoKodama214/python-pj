@@ -7,6 +7,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 import traceback
 
 class PlotUtil:
@@ -15,7 +16,7 @@ class PlotUtil:
     """
 
     @staticmethod
-    def Statistical1DPlot(matrix, filename, xlabel):
+    def plot_statistical_1d(matrix, filename, xlabel):
         """
         Seabornでの1次元ヒストグラムプロット
         
@@ -69,7 +70,7 @@ class PlotUtil:
             traceback.print_exc()
     
     @staticmethod
-    def Statistical2DPlot(matrix1, matrix2, filename, xlabel, ylabel):
+    def plot_statistical_2d(matrix1, matrix2, filename, xlabel, ylabel):
         """
         Seabornでの散布図
         
@@ -101,4 +102,111 @@ class PlotUtil:
             plt.close()
         except ValueError:
             print("Seabornでの散布図のプロットで例外が発生しました。")
+            traceback.print_exc()
+
+    @staticmethod
+    def plot_line_by_matplotlib(xdata_list, ydata_list, label_list, title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+        """
+        matplotlibでの年単位でのプロット
+        
+        Parameters
+        ----------
+        xdata_list: list
+            x軸のlistデータ
+        ydata_list: list
+            y軸のlistデータ
+        label_list: list
+            x,yデータのlistデータ。凡例に表示する
+        title: string
+            タイトル
+        xlabel: string
+            x軸のラベル名
+        ylabel: string
+            y軸のラベル名
+        filename: string
+            プロットの画像出力ファイル名
+
+        Raises
+        ----------
+        ValueError
+            TODO
+        """
+        try:
+            plt.rcParams['font.family'] = 'Hiragino Sans'
+            cmap = plt.get_cmap("tab20")
+            fig = plt.figure()
+            fig.set_size_inches(5 * int(len(label_list)/10), 5)
+            for i in range(0, len(xdata_list)):
+                plt.plot(xdata_list[i], ydata_list[i], label=label_list[i], color=cmap(i/len(xdata_list)))
+            plt.title(title)
+            plt.xlabel(xlabel)
+            plt.ylabel(ylabel)
+            plt.grid(True)
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
+            plt.savefig(filename, bbox_inches='tight')
+            plt.close()
+        except ValueError:
+            print("matplotlibでの年単位でのプロットで例外が発生しました。")
+            traceback.print_exc()
+    
+    @staticmethod
+    def plot_line_by_seaborn(title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+        """
+        seabornでの年単位でのプロット
+        
+        Parameters
+        ----------
+        data: DataFrame
+            pandasデータ
+                title: string
+            タイトル
+        title: string
+            タイトル
+        xlabel: string
+            x軸のラベル名
+        ylabel: string
+            y軸のラベル名
+        filename: string
+            プロットの画像出力ファイル名
+
+        Raises
+        ----------
+        ValueError
+            TODO
+        """
+        try:
+            print()
+        except ValueError:
+            print("seabornでの年単位でのプロットで例外が発生しました。")
+            traceback.print_exc()
+    
+    @staticmethod
+    def plot_line_by_plotly(title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+        """
+        plotlyでの年単位でのプロット
+        
+        Parameters
+        ----------
+        data: DataFrame
+            pandasデータ
+                title: string
+            タイトル
+        title: string
+            タイトル
+        xlabel: string
+            x軸のラベル名
+        ylabel: string
+            y軸のラベル名
+        filename: string
+            プロットの画像出力ファイル名
+
+        Raises
+        ----------
+        ValueError
+            TODO
+        """
+        try:
+            print()
+        except ValueError:
+            print("plotlyでの年単位でのプロットで例外が発生しました。")
             traceback.print_exc()
