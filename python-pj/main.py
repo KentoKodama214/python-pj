@@ -20,8 +20,8 @@ def main():
     # 分析データのインスタンス生成&読込
     analysisData = AnalysisData.AnalysisData()
 
-    # # 年単位での各国の人口の推移
-    # # この値が増えていると、人口の伸び、世界に対する影響力がわかる
+    # 年単位での各国の人口の推移
+    # この値が増えていると、人口の伸び、世界に対する影響力がわかる
     analysisData.plot_line({"Year": "年", "PopTotal": "総人口"}, "PopTotal")
     
     # 年単位での各国（上位20カ国）のGDPの推移
@@ -45,6 +45,7 @@ def main():
     
     # 年単位での全世界の総人口・総輸出入(・GDPの上位20カ国平均・労働所得の上位20カ国平均)の推移
     # この値の傾向で世界的な動向がわかる
+    analysisData.plot_world_map({"PopTotal": "総人口"})
     
     logging.debug("End")
 

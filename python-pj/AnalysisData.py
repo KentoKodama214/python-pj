@@ -8,7 +8,6 @@ import AbstructAnalysisData
 import settings
 import logging
 import pymysql.cursors
-import numpy as np
 import pandas as pd
 import datetime
 import traceback
@@ -85,7 +84,35 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         except ValueError:
             print("対象データがある年で上位N位の国のデータの抽出で例外が発生しました。")
             traceback.print_exc()
+    
+    def __extruct_for_world_map__(self, target):
+        """
+        対象データを抽出する
         
+        Parameters
+        ----------
+        target: string
+            抽出対象のデータ
+        
+        Returns
+        ----------
+        df: DataFrame
+            抽出したデータ
+        
+        Raises
+        ----------
+        ValueError
+            TODO
+        """
+        try:
+            countries = self.__countries[self.__countries['LocID']<900]['Country'].values.tolist()
+            df = self.__data[['Country', 'Year', target]]
+            df_by_country = df[df['Country'].isin(countries)]
+            return df_by_country.set_index('Year')
+        except ValueError:
+            print("対象データを抽出で例外が発生しました。")
+            traceback.print_exc()
+    
     def __convert_for_matplitlib__(self, df, target):
         """
         MatplotlibのプロットのDataへ変換する
@@ -264,15 +291,32 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             print(title + "のプロットで例外が発生しました。")
             traceback.print_exc()
     
-    def plot_world_map(self, year=datetime.datetime.now().year):
+    def plot_world_map(self, target_dict):
         """
+        年単位での各国のデータの推移を世界地図にプロットするpublicメソッド
         
+        Parameters
+        ----------
+        target_dict: dictionary
+            対象データとラベル名の辞書
+        
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
-            print("TODO")
-            PlotUtil.PlotGeoPandasUtil().plot_world_map(
-                
+            target_list = list(target_dict.keys())
+            label_list = list(target_dict.values())
+            data = self.__extruct_for_world_map__(target_list[0])
+            PlotUtil.PlotlyUtil().plot_world_map(
+                data,
+                locations="Country",
+                locationmode='country names',
+                color=target_list[0],
+                filename=settings.OUTPUT_PATH + target_list[0] + "_world_map.html",
+                title="世界の" + label_list[0] + "の推移"
             )
         except ValueError:
-            print("世界地図へのプロットで例外が発生しました。")
+            print(label_list[0] + "の世界地図へのプロットで例外が発生しました。")
             traceback.print_exc()

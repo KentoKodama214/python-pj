@@ -288,19 +288,45 @@ class PlotlyUtil:
             print("Plotlyでの年単位のConnected Scatterプロットで例外が発生しました。")
             traceback.print_exc()
 
-
-class PlotGeoPandasUtil:
-    """
-    GeoPandasでのPlotのUtilクラス
-    """
-    
     @staticmethod
-    def plot_world_map():
+    def plot_world_map(data, title="title", locations="Country", locationmode='country names', color="color", filename="world_map_plot.html"):
         """
-        世界地図へのプロット
+        Plotlyでの年単位のConnected Scatterプロット
+        データが多すぎると、markerごとの年のtextが表示されなくなる
+        
+        Parameters
+        ----------
+        data: DataFrame
+            pandasデータ
+        title: string
+            タイトル
+        locations: string
+            locationsを指定するカラム名
+        locationmode: string
+            locationmode(‘ISO-3’, ‘USA-states’, or ‘country names’)
+        color: string
+            プロットのcolorに使用するdataのカラム名
+        filename: string
+            プロットのhtml出力ファイル名
+
+        Raises
+        ----------
+        ValueError
+            TODO
         """
         try:
-            print("TODO")
+            range_max=data[color].max()*1.2
+            fig = px.choropleth(
+                data,
+                locations=locations,
+                locationmode=locationmode,
+                color=color,
+                color_continuous_scale=px.colors.sequential.Rainbow,
+                animation_frame=data.index,
+                range_color=[0,range_max],
+                title=title
+            )
+            fig.write_html(filename)
         except ValueError:
-            print("GeoPandasでのプロットで例外が発生しました。")
+            print("PlotlyでのWorldMapプロットで例外が発生しました。")
             traceback.print_exc()
