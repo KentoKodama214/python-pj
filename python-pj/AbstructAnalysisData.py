@@ -9,11 +9,6 @@ from abc import abstractclassmethod
 class AbstructAnalysisData:
     """
     分析データの抽象クラス
-    
-    Attributes
-    ----------
-    __data: DataFrame/ndarray
-        分析データ
     """
     
     def __init__(self):

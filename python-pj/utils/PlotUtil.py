@@ -10,9 +10,9 @@ import seaborn as sns
 import plotly.express as px
 import traceback
 
-class PlotUtil:
+class SeabornUtil:
     """
-    PlotのUtilクラス
+    SeabornでのPlotのUtilクラス
     """
 
     @staticmethod
@@ -105,7 +105,53 @@ class PlotUtil:
             traceback.print_exc()
 
     @staticmethod
-    def plot_line_by_matplotlib(xdata_list, ydata_list, label_list, title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+    def plot_line(data, title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+        """
+        seabornでの年単位でのプロット
+        
+        Parameters
+        ----------
+        data: DataFrame
+            pandasデータ
+        title: string
+            タイトル
+        xlabel: string
+            x軸のラベル名
+        ylabel: string
+            y軸のラベル名
+        filename: string
+            プロットの画像出力ファイル名
+
+        Raises
+        ----------
+        ValueError
+            TODO
+        """
+        try:
+            label_list = data.columns.values
+            fig = plt.figure()
+            fig.set_size_inches(5 * int(len(label_list)/10), 5)
+            sns.set_theme(style="whitegrid")
+            sns.set(font='Hiragino Sans')
+            sns.lineplot(data=data, linewidth=1.5)
+            plt.title(title)
+            plt.xlabel(xlabel)
+            plt.ylabel(ylabel)
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
+            plt.savefig(filename, bbox_inches='tight')
+            plt.close()
+        except ValueError:
+            print("seabornでの年単位でのプロットで例外が発生しました。")
+            traceback.print_exc()
+
+ 
+class MatplotlibUtil:
+    """
+    MatplotlibでのPlotのUtilクラス
+    """
+    
+    @staticmethod
+    def plot_line(xdata_list, ydata_list, label_list, title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
         """
         matplotlibでの年単位でのプロット
         
@@ -146,28 +192,36 @@ class PlotUtil:
             plt.savefig(filename, bbox_inches='tight')
             plt.close()
         except ValueError:
-            print("matplotlibでの年単位でのプロットで例外が発生しました。")
+            print("matplotlibでのプロットで例外が発生しました。")
             traceback.print_exc()
+
+
+class PlotlyUtil:
+    """
+    PlotlyでのPlotのUtilクラス
+    """
     
     @staticmethod
-    def plot_line_by_seaborn(title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+    def plot_line(data, title="title", x="x", y="y", labels={"x": "x", "y": "y"}, color="color", filename="liner_plot.png"):
         """
-        seabornでの年単位でのプロット
+        Plotlyでのlineプロット
         
         Parameters
         ----------
         data: DataFrame
             pandasデータ
-                title: string
-            タイトル
         title: string
             タイトル
-        xlabel: string
-            x軸のラベル名
-        ylabel: string
-            y軸のラベル名
+        x: string
+            x軸に使用するdataのカラム名
+        y: string
+            y軸に使用するdataのカラム名
+        labels: dist
+            x軸とy軸のラベル名のdictionary
+        color: string
+            lineプロットのcolorに使用するdataのカラム名
         filename: string
-            プロットの画像出力ファイル名
+            プロットのhtml出力ファイル名
 
         Raises
         ----------
@@ -175,30 +229,42 @@ class PlotUtil:
             TODO
         """
         try:
-            print()
+            fig = px.line(
+                data,
+                x,
+                y,
+                color=color,
+                labels=labels,
+                color_discrete_sequence=px.colors.qualitative.Light24,
+                title=title
+            )
+            fig.write_html(filename)
         except ValueError:
-            print("seabornでの年単位でのプロットで例外が発生しました。")
+            print("Plotlyでのlineプロットで例外が発生しました。")
             traceback.print_exc()
-    
+
     @staticmethod
-    def plot_line_by_plotly(title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
+    def plot_connected_scatter(data, title="title", x="x",y="y", labels={"x": "x", "y": "y"}, color="color", filename="connected_scatter_plot.png"):
         """
-        plotlyでの年単位でのプロット
+        Plotlyでの年単位のConnected Scatterプロット
+        データが多すぎると、markerごとの年のtextが表示されなくなる
         
         Parameters
         ----------
         data: DataFrame
             pandasデータ
-                title: string
-            タイトル
         title: string
             タイトル
-        xlabel: string
-            x軸のラベル名
-        ylabel: string
-            y軸のラベル名
+        x: string
+            x軸に使用するdataのカラム名
+        y: string
+            y軸に使用するdataのカラム名
+        labels: dist
+            x軸とy軸のラベル名のdictionary
+        color: string
+            lineプロットのcolorに使用するdataのカラム名
         filename: string
-            プロットの画像出力ファイル名
+            プロットのhtml出力ファイル名
 
         Raises
         ----------
@@ -206,7 +272,35 @@ class PlotUtil:
             TODO
         """
         try:
-            print()
+            fig = px.line(
+                data,
+                x,
+                y,
+                color=color,
+                text="Year",
+                labels=labels,
+                color_discrete_sequence=px.colors.qualitative.Light24,
+                title=title
+            )
+            fig.update_traces(textposition="bottom right")
+            fig.write_html(filename)
         except ValueError:
-            print("plotlyでの年単位でのプロットで例外が発生しました。")
+            print("Plotlyでの年単位のConnected Scatterプロットで例外が発生しました。")
+            traceback.print_exc()
+
+
+class PlotGeoPandasUtil:
+    """
+    GeoPandasでのPlotのUtilクラス
+    """
+    
+    @staticmethod
+    def plot_world_map():
+        """
+        世界地図へのプロット
+        """
+        try:
+            print("TODO")
+        except ValueError:
+            print("GeoPandasでのプロットで例外が発生しました。")
             traceback.print_exc()
