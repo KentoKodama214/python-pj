@@ -3,6 +3,7 @@ import csv
 import zipfile
 import numpy as np
 import pandas as pd
+import logging
 import traceback
 
 
@@ -27,8 +28,10 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -36,9 +39,13 @@ class FileUtil:
                 return True
             else:
                 return False
-        except ValueError:
-            print("ファイル/フォルダのチェック中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ファイル/フォルダのチェック中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def read_csv_file_by_std(filepath):
@@ -57,8 +64,10 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -67,9 +76,13 @@ class FileUtil:
                 for row in csv_reader:
                     numpy_data = np.array(row)
                 return numpy_data
-        except ValueError:
-            print("標準ライブラリでcsvファイルを読み込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("標準ライブラリでcsvファイルを読み込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def read_csv_file_by_numpy(filepath, value=None):
@@ -90,16 +103,22 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             numpy_data = np.genfromtxt(filepath, delimiter=",", filling_values=value)
             return numpy_data
-        except ValueError:
-            print("numpyでcsvファイルを読み込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("numpyでcsvファイルを読み込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def read_csv_file_by_pandas(filepath):
@@ -118,16 +137,22 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             pandas_data = pd.read_csv(filepath, delimiter=",", header=None)
             return pandas_data
-        except ValueError:
-            print("pandasでcsvファイルを読み込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("pandasでcsvファイルを読み込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def read_zip_file_by_std(execPath, filename):
@@ -148,8 +173,10 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -166,9 +193,13 @@ class FileUtil:
                         else:
                             numpy_data = np.vstack((numpy_data, np.array(row)))
                 return numpy_data
-        except ValueError:
-            print("zipファイルから読み込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("zipファイルから読み込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
    
     @staticmethod
     def write_csv_file_by_std(numpy_data, filepath):
@@ -184,17 +215,23 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             with open(filepath, 'w') as csvfile:
                 writer = csv.writer(csvfile, lineterminator='\n')  # 改行コード（\n）を指定しておく
                 writer.writerows(numpy_data)
-        except ValueError:
-            print("標準ライブラリでcsvファイルへ書き込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("標準ライブラリでcsvファイルへ書き込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def write_csv_file_by_numpy(numpy_data, filepath):
@@ -210,15 +247,21 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             np.savetxt(filepath, numpy_data, delimiter=",")
-        except ValueError:
-            print("numpyでcsvファイルへ書き込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("numpyでcsvファイルへ書き込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def write_csv_file_by_pandas(pandas_data, filepath):
@@ -234,12 +277,18 @@ class FileUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             pandas_data.pandas_data.to_csv(filepath)
-        except ValueError:
-            print("pandasでcsvファイルへ書き込み中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("pandasでcsvファイルへ書き込み中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

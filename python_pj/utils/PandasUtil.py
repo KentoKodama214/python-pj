@@ -2,6 +2,7 @@ import pandas as pd
 import traceback
 import StringUtil
 import DateUtil
+import logging
 
 
 class PandasUtil:
@@ -28,8 +29,10 @@ class PandasUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -42,9 +45,13 @@ class PandasUtil:
                 x2 = pandas_data.iloc[range(0, rows), range(col_num + 1, cols)]
                 X = pd.concat([x1, x2], axis=1)
             return X
-        except ValueError:
-            print("行列のslice中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("行列のslice中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def delete_imputed_y(X, y, col_num):
@@ -68,8 +75,10 @@ class PandasUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             y_tmp = y.isnull().reset_index()
@@ -79,9 +88,13 @@ class PandasUtil:
             y = y.iloc[index, :]
             y = y.reset_index(drop=True)
             return X, y
-        except ValueError:
-            print("目的変数が欠損しているデータの削除で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("目的変数が欠損しているデータの削除で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def check_cols_and_delete(X, nan_rate=0.5):
@@ -102,8 +115,10 @@ class PandasUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -116,9 +131,13 @@ class PandasUtil:
                     if non_nan_count/rows > nan_rate:
                         X = X.drop(col_num, axis=1)
             return X
-        except ValueError:
-            print("欠損値が多い列の削除で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("欠損値が多い列の削除で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def check_cols_and_convert(X):
@@ -137,8 +156,10 @@ class PandasUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -195,9 +216,13 @@ class PandasUtil:
                 x_after = pd.concat([x_after, df_new], axis=1)
             X = x_after
             return X
-        except ValueError:
-            print("各列のデータ型からデータを変換中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("各列のデータ型からデータを変換中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def interpolate(X, limit=None, limit_direction='forward', limit_area=None, method='linear'):
@@ -242,16 +267,22 @@ class PandasUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             # TODO
             print()
-        except ValueError:
-            print("n次元の組合せ列の追加で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("n次元の組合せ列の追加で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def normalize(X):
@@ -267,11 +298,22 @@ class PandasUtil:
         ----------
         X: DataFrame
             正規化した説明変数
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
             # TODO
             print()
-        except ValueError:
-            print("正規化で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("正規化で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import logging
 import traceback
 
 class SeabornUtil:
@@ -31,8 +32,10 @@ class SeabornUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -65,9 +68,13 @@ class SeabornUtil:
             plt.text(0.05, 0.7,  var_text,    transform = ax.transAxes, fontname = 'serif')
             plt.savefig(filename)
             plt.close()
-        except ValueError:
-            print("Seabornでの1次元ヒストグラムのプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Seabornでの1次元ヒストグラムのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def plot_statistical_2d(matrix1, matrix2, filename, xlabel, ylabel):
@@ -89,8 +96,10 @@ class SeabornUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         # Scatter Plot
@@ -100,9 +109,13 @@ class SeabornUtil:
             g.set_axis_labels(xlabel, ylabel, fontsize = 15, fontname = 'serif')
             g.savefig(filename)
             plt.close()
-        except ValueError:
-            print("Seabornでの散布図のプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Seabornでの散布図のプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def plot_line(data, title="title", xlabel="x label", ylabel="y label", filename="liner_plot.png"):
@@ -124,8 +137,10 @@ class SeabornUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             label_list = data.columns.values
@@ -140,9 +155,13 @@ class SeabornUtil:
             plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
             plt.savefig(filename, bbox_inches='tight')
             plt.close()
-        except ValueError:
-            print("seabornでの年単位でのプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("seabornでの年単位でのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
  
 class MatplotlibUtil:
@@ -174,8 +193,10 @@ class MatplotlibUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             plt.rcParams['font.family'] = 'Hiragino Sans'
@@ -191,9 +212,13 @@ class MatplotlibUtil:
             plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
             plt.savefig(filename, bbox_inches='tight')
             plt.close()
-        except ValueError:
-            print("matplotlibでのプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("matplotlibでのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
 
 class PlotlyUtil:
@@ -225,8 +250,10 @@ class PlotlyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             fig = px.line(
@@ -239,9 +266,13 @@ class PlotlyUtil:
                 title=title
             )
             fig.write_html(filename)
-        except ValueError:
-            print("Plotlyでのlineプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Plotlyでのlineプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def plot_connected_scatter(data, title="title", x="x",y="y", labels={"x": "x", "y": "y"}, color="color", filename="connected_scatter_plot.png"):
@@ -268,8 +299,10 @@ class PlotlyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             fig = px.line(
@@ -284,9 +317,13 @@ class PlotlyUtil:
             )
             fig.update_traces(textposition="bottom right")
             fig.write_html(filename)
-        except ValueError:
-            print("Plotlyでの年単位のConnected Scatterプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Plotlyでの年単位のConnected Scatterプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def plot_world_map(data, title="title", locations="Country", locationmode='country names', color="color", filename="world_map_plot.html"):
@@ -311,8 +348,10 @@ class PlotlyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             range_max=data[color].max()*1.2
@@ -327,6 +366,10 @@ class PlotlyUtil:
                 title=title
             )
             fig.write_html(filename)
-        except ValueError:
-            print("PlotlyでのWorldMapプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("PlotlyでのWorldMapプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

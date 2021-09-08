@@ -9,6 +9,7 @@ from utils import NumpyUtil
 from abc import abstractclassmethod
 import numpy as np
 import itertools as it
+import logging
 import traceback
 
 class AbstructLearningData:
@@ -80,13 +81,18 @@ class AbstructLearningData:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             self.__X_train, self.__X_test, self.__y_train, self.__y_test = train_test_split(self.__X, self.__y, test_size = rate, random_state = 0)
-        except ValueError:
-            print("学習データとテストデータに分割する際に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("学習データとテストデータに分割する際に予期しない例外が発生しました。")
             traceback.print_exc()
         
     def combine_features(self, dimension):

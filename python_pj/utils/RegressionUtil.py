@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor, GradientBoostingRegressor
 from sklearn.metrics import explained_variance_score, mean_squared_error
 import numpy as np
+import logging
 import traceback
 
 class RegressionUtil:
@@ -32,15 +33,21 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             return mean_squared_error(y_pred, y)
-        except ValueError:
-            print("mean_squared_errorを計算中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("mean_squared_errorを計算中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     def __explained_variance_score__(y, y_pred):
         """
@@ -60,15 +67,21 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
             return explained_variance_score(y_pred, y, multioutput = 'variance_weighted')
-        except ValueError:
-            print("explained_variance_scoreを計算中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("explained_variance_scoreを計算中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_ordinary_least_square(X, y):
@@ -95,8 +108,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -106,9 +121,13 @@ class RegressionUtil:
             evs   = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse   = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("OLSで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("OLSで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_ridge_regression(X, y, num_cv = 10):
@@ -137,8 +156,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -148,9 +169,13 @@ class RegressionUtil:
             evs   = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse   = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("リッジ回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("リッジ回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_linear_regression(X, y, num_cv = 10):
@@ -179,8 +204,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -190,9 +217,13 @@ class RegressionUtil:
             evs   = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse   = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("線形回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("線形回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_lars(X, y, num_cv = 10):
@@ -221,8 +252,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -232,9 +265,13 @@ class RegressionUtil:
             evs   = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse   = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("LARSで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("LARSで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_llars(X, y, num_cv = 10):
@@ -263,8 +300,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -274,9 +313,13 @@ class RegressionUtil:
             evs   = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse   = RegressionUtil.__mean_squared_error__(np.dot(X, llars.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("LLARSで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("LLARSで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_kernel_ridge_regression(X, y):
@@ -303,8 +346,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -320,9 +365,13 @@ class RegressionUtil:
                     mse        = RegressionUtil.__mean_squared_error__(np.dot(X, coef), y)
                     best_alpha = alpha
             return coef, score, evs, mse
-        except ValueError:
-            print("カーネルリッジ回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("カーネルリッジ回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_bayesian_ridge_regression(X, y):
@@ -349,8 +398,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -360,9 +411,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("ベイジアンリッジ回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ベイジアンリッジ回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_support_vector_regression(X, y):
@@ -389,8 +444,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -400,9 +457,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("サポートベクター回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("サポートベクター回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_gaussian_process(X, y):
@@ -429,8 +490,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -440,9 +503,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("ガウス過程回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ガウス過程回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_decision_tree_regressor(X, y):
@@ -469,8 +536,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -480,9 +549,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("決定木回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("決定木回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_extra_tree_regressor(X, y):
@@ -509,8 +582,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -520,9 +595,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("エクストラツリー回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("エクストラツリー回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_random_forest_regressor(X, y):
@@ -549,8 +628,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -560,9 +641,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("ランダムフォレスト回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ランダムフォレスト回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_k_nearest_neighbors_regressor(X, y):
@@ -589,8 +674,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -600,9 +687,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("K-NN回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("K-NN回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_radius_neighbors_regressor(X, y):
@@ -629,8 +720,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -640,9 +733,13 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("Radius Neighbor回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Radius Neighbor回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_gradient_boosting_regressor(X, y):
@@ -669,8 +766,10 @@ class RegressionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -680,6 +779,10 @@ class RegressionUtil:
             evs = RegressionUtil.__explained_variance_score__(np.dot(X, coef.transpose()), y)
             mse = RegressionUtil.__mean_squared_error__(np.dot(X, coef.transpose()), y)
             return coef, score, evs, mse
-        except ValueError:
-            print("勾配ブースティング回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("勾配ブースティング回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

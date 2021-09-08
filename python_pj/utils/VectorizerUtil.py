@@ -8,6 +8,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+import logging
 import traceback
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -36,17 +37,23 @@ class VectorizerUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             count  = CountVectorizer()
             X      = count.fit_transform(word_list).toarray()
             Xnames = count.get_feature_names()
             return X, Xnames
-        except ValueError:
-            print("出現回数によるベクトル化の際に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("出現回数によるベクトル化の際に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def tfidf_vectorizer(word_list):
@@ -67,11 +74,21 @@ class VectorizerUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
-
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
-        tfidf  = TfidfVectorizer()
-        X      = tfidf.fit_transform(word_list).toarray()
-        Xnames = tfidf.get_feature_names()
-        return X, Xnames
+        try:
+            tfidf  = TfidfVectorizer()
+            X      = tfidf.fit_transform(word_list).toarray()
+            Xnames = tfidf.get_feature_names()
+            return X, Xnames
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("TF-IDF特徴によるベクトル化の際に予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+

@@ -1,6 +1,7 @@
 import re
 import traceback
 import datetime as dt
+import logging
 
 class StringUtil:
     """
@@ -23,8 +24,10 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -55,10 +58,13 @@ class StringUtil:
                 return "datetime"
             else:
                 return "other"
-
-        except ValueError:
-            print("文字列の種類をチェック中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列の種類をチェック中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def convert_string_to_date(date_str):
@@ -77,8 +83,10 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -97,9 +105,13 @@ class StringUtil:
                 return dt.datetime.strptime(date_str, '%Y:%m:%d')
             else:
                 return None
-        except ValueError:
-            print("文字列から年月日（date型）に変換中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列から年月日（date型）に変換中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def convert_string_to_datetime(datetime_str):
@@ -118,8 +130,10 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             date_pattern1 = re.compile('(\d{4})/(\d{1,2})/(\d{1,2}) (\d{2}):(\d{2}):(\d{2})')
@@ -137,9 +151,13 @@ class StringUtil:
                 return dt.datetime.strptime(datetime_str, '%Y:%m:%d %h:%m:%s')
             else:
                 return None
-        except ValueError:
-            print("文字列から年月日時分秒（date型）に変換中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列から年月日時分秒（date型）に変換中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def extract_date(date_str):
@@ -162,8 +180,10 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -185,9 +205,13 @@ class StringUtil:
                 return {'year': int(y), 'month': int(m), 'day': int(d)}
             else:
                 return None
-        except ValueError:
-            print("文字列から年月日を抽出中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列から年月日を抽出中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def extract_datetime(datetime_str):
@@ -216,8 +240,10 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -239,9 +265,13 @@ class StringUtil:
                 return {'year': year, 'month': month, 'day': day, 'hour': hour, 'minutes': minutes, 'second': second}
             else:
                 return None
-        except ValueError:
-            print("文字列から年月日時分秒を抽出中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列から年月日時分秒を抽出中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def extract_weekday(date_str):
@@ -260,15 +290,20 @@ class StringUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
             weekday = ["月", "火", "水", "木", "金", "土", "日"]
             a = StringUtil.convert_string_to_date(date_str)
             return weekday[a.weekday()]
-        except ValueError:
-            print("文字列から曜日を計算中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("文字列から曜日を計算中に予期しない例外が発生しました。")
             traceback.print_exc()
-
+            raise Exception

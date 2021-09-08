@@ -29,6 +29,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             分析データ
         __countries: DataFrame/ndarray
             国名・地域データ
+            
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             conn = pymysql.connect(host=settings.HOST,
@@ -44,9 +51,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
                 cursor.execute(settings.SELECT_COUNTRY_VIEW)
                 results = cursor.fetchall()
                 self.__countries = pd.DataFrame(results)
-        except ValueError:
-            print("データの読込で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("データの読込で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
         finally:
             conn.close()
    
@@ -72,8 +83,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             countries = self.__countries[self.__countries['LocID']<900]['Country'].values.tolist()
@@ -81,9 +94,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             df_by_country = df[df['Country'].isin(countries)]
             top_n_countries = df_by_country[df_by_country['Year']==year].sort_values(by=target, ascending=False).head(top_n)['Country'].values.tolist()
             return df_by_country[df_by_country['Country'].isin(top_n_countries)].dropna(subset=target_list, how='all')
-        except ValueError:
-            print("対象データがある年で上位N位の国のデータの抽出で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("対象データがある年で上位N位の国のデータの抽出で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     def __extruct_for_world_map__(self, target):
         """
@@ -101,17 +118,23 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             countries = self.__countries[self.__countries['LocID']<900]['Country'].values.tolist()
             df = self.__data[['Country', 'Year', target]]
             df_by_country = df[df['Country'].isin(countries)]
             return df_by_country.set_index('Year')
-        except ValueError:
-            print("対象データを抽出で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("対象データを抽出で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     def __convert_for_matplitlib__(self, df, target):
         """
@@ -135,20 +158,30 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
-        target_list = []
-        year_list = []
-        coutry_list = []
+        try:
+            target_list = []
+            year_list = []
+            coutry_list = []
             
-        for country in set(df['Country'].values.tolist()):
-            df_of_country = df[df['Country']==country]
-            coutry_list.append(country)
-            year_list.append(df_of_country['Year'].values.tolist())
-            target_list.append(df_of_country[target].values.tolist())
+            for country in set(df['Country'].values.tolist()):
+                df_of_country = df[df['Country']==country]
+                coutry_list.append(country)
+                year_list.append(df_of_country['Year'].values.tolist())
+                target_list.append(df_of_country[target].values.tolist())
             
-        return year_list, target_list, coutry_list
+            return year_list, target_list, coutry_list
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("対象データを抽出で予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
    
     def __convert_for_seaborn__(self, df):
         """
@@ -166,8 +199,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             data = pd.DataFrame(data=None, index=None, columns=None, dtype=None, copy=False)
@@ -179,9 +214,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
                 seaborn_df = df_by_year.set_axis(['Country', country], axis=1)[country]
                 data = data.append(seaborn_df)
             return data.T
-        except ValueError:
-            print("seabornのプロットのDataFrameへ変換する際に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("seabornのプロットのDataFrameへ変換する際に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     def plot_line(self, target_dict, extruct_target, mode="plotly", top_n=20, year=datetime.datetime.now().year):
         """
@@ -202,8 +241,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             target_list = list(target_dict.keys())
@@ -248,9 +289,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
                 )
             else:
                 logging.warning("モードが間違っています。")
-        except ValueError:
-            print(title + "のプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
       
     def plot_connected_scatter(self, target_dict, extruct_target, top_n=5, year=datetime.datetime.now().year):
         """
@@ -269,8 +314,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             target_list = list(target_dict.keys())
@@ -287,9 +334,13 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
                 "Country",
                 settings.OUTPUT_PATH + target_list[0] + "_vs_" + target_list[1] + ".html"
             )
-        except ValueError:
-            print(title + "のプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     def plot_world_map(self, target_dict):
         """
@@ -302,8 +353,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             target_list = list(target_dict.keys())
@@ -317,6 +370,10 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
                 filename=settings.OUTPUT_PATH + target_list[0] + "_world_map.html",
                 title="世界の" + label_list[0] + "の推移"
             )
-        except ValueError:
-            print(label_list[0] + "の世界地図へのプロットで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(label_list[0] + "の世界地図へのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

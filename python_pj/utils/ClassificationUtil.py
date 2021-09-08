@@ -7,6 +7,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, ExtraTreesClassifier, GradientBoostingClassifier
 from sklearn.neighbors._nearest_centroid import NearestCentroid
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, roc_auc_score, explained_variance_score
+import logging
 import traceback
 
 class ClassificationUtil:
@@ -42,8 +43,10 @@ class ClassificationUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             confmat            = confusion_matrix(y, y_pred)
@@ -53,9 +56,13 @@ class ClassificationUtil:
             roc_auc            = roc_auc_score(y, y_pred, average = 'macro')
             explained_variance = explained_variance_score(y_pred, y)
             return confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("分類問題における各種スコアを計算する際に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("分類問題における各種スコアを計算する際に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def exec_logistic_regression(X, y, num_cv):
@@ -90,8 +97,10 @@ class ClassificationUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -100,9 +109,13 @@ class ClassificationUtil:
             score = logistic.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, logistic.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("ロジスティック回帰で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ロジスティック回帰で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_lda(X, y):
@@ -137,8 +150,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -147,9 +162,13 @@ class ClassificationUtil:
             score = lda.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, lda.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("LDAで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("LDAで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_support_vector_classifier(X, y):
@@ -184,8 +203,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -194,9 +215,13 @@ class ClassificationUtil:
             score = svc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, svc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("サポートベクター分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("サポートベクター分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_nu_support_vector_classifier(X, y):
@@ -231,8 +256,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -241,9 +268,13 @@ class ClassificationUtil:
             score = nusvc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, nusvc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("Nuサポートベクター分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Nuサポートベクター分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_k_nearest_neighbor_classifier(X, y):
@@ -278,8 +309,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -287,9 +320,13 @@ class ClassificationUtil:
             score = knnc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, knnc.predict(X))
             return None, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("k-NN分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("k-NN分類で例外が予期しない発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_radius_nearest_neighbor_classifier(X, y):
@@ -324,8 +361,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -333,9 +372,13 @@ class ClassificationUtil:
             score = rnnc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, rnnc.predict(X))
             return None, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("Radius-Neighbor分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Radius-Neighbor分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_nearest_centroid(X, y):
@@ -370,8 +413,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -379,9 +424,13 @@ class ClassificationUtil:
             score = nc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, nc.predict(X))
             return None, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("Nearest-Centroidで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Nearest-Centroidで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_gaussian_naive_bayes(X, y):
@@ -416,8 +465,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -425,9 +476,13 @@ class ClassificationUtil:
             score = gnb.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, gnb.predict(X))
             return None, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("ガウシアンナイーブベイズで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ガウシアンナイーブベイズで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_bernoulli_naive_bayes(X, y):
@@ -462,8 +517,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -472,9 +529,13 @@ class ClassificationUtil:
             score = bnb.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, bnb.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("ベルヌーイナイーブベイズで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ベルヌーイナイーブベイズで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_decision_tree_classifier(X, y):
@@ -509,8 +570,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -519,9 +582,13 @@ class ClassificationUtil:
             score = dtc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, dtc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("決定木分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("決定木分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_extra_tree_classifier(X, y):
@@ -556,8 +623,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -566,9 +635,13 @@ class ClassificationUtil:
             score = etc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, etc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("Extra決定木分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("Extra決定木分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_random_forest_classifier(X, y):
@@ -603,8 +676,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -613,9 +688,13 @@ class ClassificationUtil:
             score = rfc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, rfc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("ランダムフォレスト分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("ランダムフォレスト分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_adaboost_classifier(X, y):
@@ -650,8 +729,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -660,9 +741,13 @@ class ClassificationUtil:
             score = adac.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, adac.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("AdaBoost分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("AdaBoost分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def exec_gradient_boosting_classifier(X, y):
@@ -697,8 +782,10 @@ class ClassificationUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         
         try:
@@ -707,6 +794,10 @@ class ClassificationUtil:
             score = gbc.score(X, y)
             confmat, precision, recall, f1, roc_auc, explained_variance = ClassificationUtil.__classification_scores__(y, gbc.predict(X))
             return coef, score, confmat, precision, recall, f1, roc_auc, explained_variance
-        except ValueError:
-            print("勾配ブースティング分類で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("勾配ブースティング分類で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

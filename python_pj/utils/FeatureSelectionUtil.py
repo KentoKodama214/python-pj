@@ -7,6 +7,7 @@ from sklearn.feature_selection import SelectKBest, SelectPercentile, SelectFpr, 
 from sklearn.svm import SVR, SVC
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.linear_model import LassoCV, LogisticRegressionCV
+import logging
 import traceback
 
 class FeatureSelectionUtil:
@@ -34,16 +35,22 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             X     = model.fit_transform(X, y)
             score = model.scores_
             return X, score
-        except ValueError:
-            print("スコアの計算で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("スコアの計算で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def k_best_for_regression(X, y, num):
@@ -68,15 +75,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectKBest(f_regression, k = num)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("k_best_for_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("k_best_for_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def k_best_for_classification(X, y, num):
@@ -101,15 +114,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectKBest(f_classif, k = num)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("k_best_for_classificationで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("k_best_for_classificationで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     
     @staticmethod
@@ -135,16 +154,22 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             pst   = int(num / len(X[0]))
             model = SelectPercentile(f_regression, percentile = pst)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("percentile_for_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("percentile_for_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def percentile_for_classification(X, y, num):
@@ -169,16 +194,22 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             pst   = int(num / len(X[0]))
             model = SelectPercentile(f_classif, percentile = pst)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("percentile_for_classificationで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("percentile_for_classificationで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def fpr_for_regression(X, y, num):
@@ -203,15 +234,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFpr(SelectKBest(f_regression, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fpr_for_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fpr_for_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
  
     @staticmethod
     def fpr_for_classification(X, y, num):
@@ -236,15 +273,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFpr(SelectKBest(f_classif, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fpr_for_classificationで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fpr_for_classificationで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def fwe_for_regression(X, y, num):
@@ -269,15 +312,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFwe(SelectKBest(f_regression, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fwe_for_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fwe_for_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def fwe_for_classification(X, y, num):
@@ -302,15 +351,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFwe(SelectKBest(f_classif, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fwe_for_classificationで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fwe_for_classificationで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def fdr_for_regression(X, y, num):
@@ -335,15 +390,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFdr(SelectKBest(f_regression, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fdr_for_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fdr_for_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def fdr_for_classification(X, y, num):
@@ -368,15 +429,21 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             model = SelectFdr(SelectKBest(f_classif, k = num), alpha = 0.05)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("fdr_for_classificationで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("fdr_for_classificationで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def rfecv(X, y, kernel, step, cv):
@@ -405,16 +472,22 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             estimator = SVR(kernel = kernel)
             model     = RFECV(estimator, step = step, cv = cv)
             return FeatureSelectionUtil.__calc_score__(X, y, model)
-        except ValueError:
-            print("rfecvで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("rfecvで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def select_from_lasso(X, y, cv, max_iter):
@@ -441,8 +514,10 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             clf = LassoCV(alphas=[0.001, 0.01, 0.1, 1.0, 10.0], cv = cv, max_iter = max_iter).fit(X, y)
@@ -450,9 +525,13 @@ class FeatureSelectionUtil:
             X     = model.transform(X)
             score = model.get_support(True)
             return X, score
-        except ValueError:
-            print("select_from_lassoで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("select_from_lassoで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def select_from_decision_tree(X, y):
@@ -475,8 +554,10 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             clf   = ExtraTreesClassifier().fit(X, y)
@@ -484,9 +565,13 @@ class FeatureSelectionUtil:
             X     = model.transform(X)
             score = model.get_support(True)
             return X, score
-        except ValueError:
-            print("select_from_decision_treeで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("select_from_decision_treeで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def select_from_logistic_regression(X, y, cv):
@@ -511,8 +596,10 @@ class FeatureSelectionUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             clf   = LogisticRegressionCV(penalty = "l1", dual = False, cv = cv).fit(X, y)
@@ -520,9 +607,13 @@ class FeatureSelectionUtil:
             X     = model.transform(X)
             score = model.get_support(True)
             return X, score
-        except ValueError:
-            print("select_from_logistic_regressionで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("select_from_logistic_regressionで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
     
     @staticmethod
     def select_from_svc(X, y, kernel):
@@ -547,8 +638,10 @@ class FeatureSelectionUtil:
             
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
         try:
             clf   = SVC(kernel = kernel).fit(X, y)
@@ -556,6 +649,10 @@ class FeatureSelectionUtil:
             X     = model.transform(X)
             score = model.get_support(True)
             return X, score
-        except ValueError:
-            print("select_from_svcで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("select_from_svcで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception

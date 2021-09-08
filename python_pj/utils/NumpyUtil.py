@@ -2,6 +2,7 @@ import numpy as np
 import traceback
 import itertools as it
 from sklearn.preprocessing import Imputer
+import logging
 
 class NumpyUtil:
     """
@@ -27,8 +28,10 @@ class NumpyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -37,9 +40,13 @@ class NumpyUtil:
             else:
                 X = np.hstack((numpy_data[:, 0:col_num], numpy_data[:, col_num + 1:])).copy()
             return X
-        except ValueError:
-            print("行列のslice中に例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("行列のslice中に予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def delete_imputed_y(X, y):
@@ -62,8 +69,10 @@ class NumpyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -71,9 +80,13 @@ class NumpyUtil:
             X = X[index, :].copy()
             y = y[index, 0:1].copy()
             return X, y
-        except ValueError:
-            print("目的変数が欠損しているデータの削除で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("目的変数が欠損しているデータの削除で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def check_cols_and_delete(X, nan_rate=0.5):
@@ -94,8 +107,10 @@ class NumpyUtil:
 
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -115,9 +130,13 @@ class NumpyUtil:
 
                 X = x.copy()
             return X
-        except ValueError:
-            print("欠損値が多い列の削除で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("欠損値が多い列の削除で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def imputation(X, strategy='mean'):
@@ -138,8 +157,10 @@ class NumpyUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -147,9 +168,13 @@ class NumpyUtil:
             imp.fit(X)
             X = imp.transform(X)
             return X
-        except ValueError:
-            print("scikit-learnのImputerで例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("scikit-learnのImputerで予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def combination_cols(X, features_name, dimension):
@@ -174,8 +199,10 @@ class NumpyUtil:
         
         Raises
         ----------
-        ValueError
-            TODO
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -198,9 +225,13 @@ class NumpyUtil:
                     X = np.hstack((X, x.reshape(n, 1)))
                     features_name = np.append(features_name, str)
             return X, features_name
-        except ValueError:
-            print("n次元の組合せ列の追加で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("n次元の組合せ列の追加で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
 
     @staticmethod
     def normalize(X):
@@ -216,6 +247,13 @@ class NumpyUtil:
         ----------
         X: ndarray
             正規化した説明変数
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
         """
 
         try:
@@ -224,6 +262,10 @@ class NumpyUtil:
                 var = np.std(X[:, i])
                 X[:, i] = (X[:, i] - mean)/var
             return X
-        except ValueError:
-            print("正規化で例外が発生しました。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("正規化で予期しない例外が発生しました。")
             traceback.print_exc()
+            raise Exception
