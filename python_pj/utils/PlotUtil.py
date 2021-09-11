@@ -34,6 +34,10 @@ class SeabornUtil:
         ----------
         TypeError
             誤った引数の型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
         Exception
             その他例外が発生した場合
         """
@@ -71,49 +75,14 @@ class SeabornUtil:
         except TypeError:
             logging.error("引数の型が間違っています。")
             raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
         except:
             logging.error("Seabornでの1次元ヒストグラムのプロットで予期しない例外が発生しました。")
-            traceback.print_exc()
-            raise Exception
-    
-    @staticmethod
-    def plot_statistical_2d(matrix1, matrix2, filename, xlabel, ylabel):
-        """
-        Seabornでの散布図
-        
-        Parameters
-        ----------
-        matrix1: ndarray
-            numpyデータ
-        matrix2: ndarray
-            numpyデータ        
-        filename: string
-            プロットの画像出力ファイル名
-        xlabel: string
-            x軸のラベル名
-        ylabel: string
-            y軸のラベル名
-
-        Raises
-        ----------
-        TypeError
-            誤った引数の型が指定された場合
-        Exception
-            その他例外が発生した場合
-        """
-        
-        # Scatter Plot
-        try:
-            g = sns.jointplot(matrix1, matrix2, kind = 'kde').plot_joint(plt.scatter, s = 30, marker = 'o', c = 'r')
-            g.ax_joint.collections[0].set_alpha(0)
-            g.set_axis_labels(xlabel, ylabel, fontsize = 15, fontname = 'serif')
-            g.savefig(filename)
-            plt.close()
-        except TypeError:
-            logging.error("引数の型が間違っています。")
-            raise TypeError
-        except:
-            logging.error("Seabornでの散布図のプロットで予期しない例外が発生しました。")
             traceback.print_exc()
             raise Exception
 
@@ -137,27 +106,35 @@ class SeabornUtil:
 
         Raises
         ----------
-        TypeError
-            誤った引数の型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
         Exception
             その他例外が発生した場合
         """
         try:
             label_list = data.columns.values
+            if len(label_list) < 10:
+                ncol = 1
+            else:
+                ncol = int(len(label_list)/10)
             fig = plt.figure()
-            fig.set_size_inches(5 * int(len(label_list)/10), 5)
             sns.set_theme(style="whitegrid")
             sns.set(font='Hiragino Sans')
             sns.lineplot(data=data, linewidth=1.5)
             plt.title(title)
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
-            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=ncol)
             plt.savefig(filename, bbox_inches='tight')
             plt.close()
-        except TypeError:
-            logging.error("引数の型が間違っています。")
-            raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
         except:
             logging.error("seabornでの年単位でのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
@@ -193,8 +170,12 @@ class MatplotlibUtil:
 
         Raises
         ----------
-        TypeError
-            誤った引数の型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
+        IndexError
+            誤ったインデックスの範囲が指定された場合
         Exception
             その他例外が発生した場合
         """
@@ -202,19 +183,28 @@ class MatplotlibUtil:
             plt.rcParams['font.family'] = 'Hiragino Sans'
             cmap = plt.get_cmap("tab20")
             fig = plt.figure()
-            fig.set_size_inches(5 * int(len(label_list)/10), 5)
+            if len(label_list) < 10:
+                ncol = 1
+            else:
+                ncol = int(len(label_list)/10)
             for i in range(0, len(xdata_list)):
                 plt.plot(xdata_list[i], ydata_list[i], label=label_list[i], color=cmap(i/len(xdata_list)))
             plt.title(title)
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
             plt.grid(True)
-            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=int(len(label_list)/10))
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, fontsize=10, ncol=ncol)
             plt.savefig(filename, bbox_inches='tight')
             plt.close()
-        except TypeError:
-            logging.error("引数の型が間違っています。")
-            raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
+        except IndexError:
+            logging.error("インデックスの範囲が間違っています。")
+            raise IndexError
         except:
             logging.error("matplotlibでのプロットで予期しない例外が発生しました。")
             traceback.print_exc()
@@ -250,8 +240,10 @@ class PlotlyUtil:
 
         Raises
         ----------
-        TypeError
-            誤った引数の型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
         Exception
             その他例外が発生した場合
         """
@@ -266,9 +258,12 @@ class PlotlyUtil:
                 title=title
             )
             fig.write_html(filename)
-        except TypeError:
-            logging.error("引数の型が間違っています。")
-            raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
         except:
             logging.error("Plotlyでのlineプロットで予期しない例外が発生しました。")
             traceback.print_exc()
@@ -299,8 +294,10 @@ class PlotlyUtil:
 
         Raises
         ----------
-        TypeError
-            誤った引数の型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
         Exception
             その他例外が発生した場合
         """
@@ -317,9 +314,12 @@ class PlotlyUtil:
             )
             fig.update_traces(textposition="bottom right")
             fig.write_html(filename)
-        except TypeError:
-            logging.error("引数の型が間違っています。")
-            raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
         except:
             logging.error("Plotlyでの年単位のConnected Scatterプロットで予期しない例外が発生しました。")
             traceback.print_exc()
@@ -349,7 +349,11 @@ class PlotlyUtil:
         Raises
         ----------
         TypeError
-            誤った引数の型が指定された場合
+            誤った型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
         Exception
             その他例外が発生した場合
         """
@@ -369,6 +373,12 @@ class PlotlyUtil:
         except TypeError:
             logging.error("引数の型が間違っています。")
             raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
         except:
             logging.error("PlotlyでのWorldMapプロットで予期しない例外が発生しました。")
             traceback.print_exc()
