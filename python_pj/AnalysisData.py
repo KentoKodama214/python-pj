@@ -102,6 +102,41 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             traceback.print_exc()
             raise Exception
     
+    def __extruct_countries__(self, target_list, countries):
+        """
+        対象データがある年で指定した国のデータを抽出する
+        
+        Parameters
+        ----------
+        target_list: list
+            対象データのカラム名のリスト
+        countries: list
+            抽出する国名のリスト
+
+        Returns
+        ----------
+        top_n_df: DataFrame
+            対象年で上位N位の国のデータ
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            df = self.__data[['Country', 'Year'] + target_list]
+            df_by_country = df[df['Country'].isin(countries)]
+            return df_by_country[df_by_country['Country'].isin(countries)].dropna(subset=target_list, how='all')
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error("対象データがある年で指定した国のデータの抽出で予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+    
     def __extruct_for_world_map__(self, target):
         """
         対象データを抽出する
@@ -222,9 +257,121 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             traceback.print_exc()
             raise Exception
     
-    def plot_line(self, target_dict, extruct_target, mode="plotly", top_n=20, year=datetime.datetime.now().year):
+    def __plot_line__(self, df, target_dict, mode="plotly", title="プロット", filepath=settings.OUTPUT_PATH+"filename"):
         """
-        年単位での各国のデータの推移をプロットするpublicメソッド
+        年単位での各国のデータの推移をプロットするprivateメソッド
+        
+        Parameters
+        ----------
+        df: DataFrame
+            プロット対象のデータ
+        target_dict: dictionary
+            対象データとラベル名の辞書
+        mode: string, default plotly
+            プロットのモード（plotly / seaborn / matplotlib）
+        title: string
+            グラフのタイトル
+        filepath: string
+            ファイルパス（拡張子は除く）
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            target_list = list(target_dict.keys())
+            label_list = list(target_dict.values())
+            target_x = target_list[0]
+            target_y = target_list[1]
+            x_label = label_list[0]
+            y_label = label_list[1]
+
+            if(mode=="plotly"):
+                PlotUtil.PlotlyUtil().plot_line(
+                    df,
+                    title,
+                    target_x,
+                    target_y,
+                    {target_x: x_label, target_y: y_label},
+                    "Country",
+                    filepath + ".html"
+                )
+            elif(mode=="seaborn"):
+                top_n_seaborn_df = self.__convert_for_seaborn__(df)
+                PlotUtil.SeabornUtil().plot_line(
+                    top_n_seaborn_df, 
+                    title,
+                    x_label,
+                    y_label,
+                    filepath + ".png"
+                )
+            elif(mode=="matplotlib"):
+                year_list, pop_total_list, coutry_list = self.__convert_for_matplitlib__(df, target_y)
+                PlotUtil.MatplotlibUtil().plot_line(
+                    year_list, 
+                    pop_total_list, 
+                    coutry_list,
+                    title,
+                    x_label,
+                    y_label,
+                    filepath + ".png"
+                )
+            else:
+                logging.warning("モードが間違っています。")
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+    
+    def __plot_connected_scatter__(self, df, target_dict, title="プロット", filepath=settings.OUTPUT_PATH+"filename"):
+        """
+        各国の2つのデータの推移をプロットするprivateメソッド
+        
+        Parameters
+        ----------
+        target_dict: dictionary
+            対象データとラベル名の辞書
+        title: string
+            プロットのタイトル
+        filepath: string
+            ファイルパス（拡張子なし）
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            target_list = list(target_dict.keys())
+
+            PlotUtil.PlotlyUtil().plot_connected_scatter(
+                df, 
+                title,
+                target_list[0],
+                target_list[1],
+                target_dict,
+                "Country",
+                filepath + ".html"
+            )
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+    
+    def plot_line_top_n(self, target_dict, extruct_target, mode="plotly", top_n=20, year=datetime.datetime.now().year, filename="filename"):
+        """
+        年単位での上位N国のデータの推移をプロットするpublicメソッド
         
         Parameters
         ----------
@@ -238,6 +385,45 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             抽出する国数
         year: int, default current year
             上位Nカ国を選択する対象年（デフォルトは現在年）
+        filename: string
+            ファイル名
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            target_list = list(target_dict.keys())
+            title = "上位" + str(top_n) + "カ国の" + target_dict[extruct_target] + "の推移"
+            target_y = target_list[1]
+            filepath = settings.OUTPUT_PATH + filename
+            top_n_df = self.__extruct_top_n__([target_y], extruct_target, year, top_n)
+            self.__plot_line__(top_n_df, target_dict, mode, title, filepath)
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+ 
+    def plot_line_countries(self, target_dict, countries, mode="plotly", filename="filename"):
+        """
+        年単位での指定した国のデータの推移をプロットするpublicメソッド
+        
+        Parameters
+        ----------
+        target_dict: dictionary
+            対象データとラベル名の辞書
+        countries: list
+            国のリスト
+        mode: string, default plotly
+            プロットのモード（plotly / seaborn / matplotlib）
+        filename: string
+            ファイル名
         
         Raises
         ----------
@@ -249,46 +435,11 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
         try:
             target_list = list(target_dict.keys())
             label_list = list(target_dict.values())
-            title = "上位" + str(top_n) + "カ国の" + target_dict[extruct_target] + "の推移"
-            target_x = target_list[0]
+            title = label_list[1] + "の推移"
             target_y = target_list[1]
-            x_label = label_list[0]
-            y_label = label_list[1]
-
-            top_n_df = self.__extruct_top_n__([target_y], extruct_target, year, top_n)
-            
-            if(mode=="plotly"):
-                PlotUtil.PlotlyUtil().plot_line(
-                    top_n_df,
-                    title,
-                    target_x,
-                    target_y,
-                    {target_x: x_label, target_y: y_label},
-                    "Country",
-                    settings.OUTPUT_PATH + target_y + ".html"
-                )
-            elif(mode=="seaborn"):
-                top_n_seaborn_df = self.__convert_for_seaborn__(top_n_df)
-                PlotUtil.SeabornUtil().plot_line(
-                    top_n_seaborn_df, 
-                    title,
-                    x_label,
-                    y_label,
-                    settings.OUTPUT_PATH + target_y + ".png"
-                )
-            elif(mode=="matplotlib"):
-                year_list, pop_total_list, coutry_list = self.__convert_for_matplitlib__(top_n_df, target_y)
-                PlotUtil.MatplotlibUtil().plot_line(
-                    year_list, 
-                    pop_total_list, 
-                    coutry_list,
-                    title,
-                    x_label,
-                    y_label,
-                    settings.OUTPUT_PATH + target_y + ".png"
-                )
-            else:
-                logging.warning("モードが間違っています。")
+            filepath = settings.OUTPUT_PATH + filename
+            df = self.__extruct_countries__([target_y], countries)
+            self.__plot_line__(df, target_dict, mode, title, filepath)
         except TypeError:
             logging.error("引数の型が間違っています。")
             raise TypeError
@@ -296,8 +447,8 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             logging.error(title + "のプロットで予期しない例外が発生しました。")
             traceback.print_exc()
             raise Exception
-      
-    def plot_connected_scatter(self, target_dict, extruct_target, top_n=5, year=datetime.datetime.now().year):
+    
+    def plot_connected_scatter_top_n(self, target_dict, extruct_target, top_n=5, year=datetime.datetime.now().year, filename="filename"):
         """
         各国の2つのデータの推移をプロットするpublicメソッド
         
@@ -311,7 +462,9 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             抽出する国数
         year: int, default current year
             上位Nカ国を選択する対象年（デフォルトは現在年）
-        
+        filename: string
+            ファイル名
+
         Raises
         ----------
         TypeError
@@ -323,17 +476,44 @@ class AnalysisData(AbstructAnalysisData.AbstructAnalysisData):
             target_list = list(target_dict.keys())
             label_list = list(target_dict.values())
             title = target_dict[extruct_target] + "の上位" + str(top_n) + "カ国の" + label_list[0] + "と" + label_list[1] + "の推移"
+            filepath = settings.OUTPUT_PATH + filename
             top_n_df = self.__extruct_top_n__(target_list, extruct_target, year, top_n)
-
-            PlotUtil.PlotlyUtil().plot_connected_scatter(
-                top_n_df,
-                title,
-                target_list[0],
-                target_list[1],
-                target_dict,
-                "Country",
-                settings.OUTPUT_PATH + target_list[0] + "_vs_" + target_list[1] + ".html"
-            )
+            self.__plot_connected_scatter__(top_n_df, target_dict, title, filepath)
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except:
+            logging.error(title + "のプロットで予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+    
+    def plot_connected_scatter_countries(self, target_dict, countries, filename="filename"):
+        """
+        各国の2つのデータの推移をプロットするpublicメソッド
+        
+        Parameters
+        ----------
+        target_dict: dictionary
+            対象データとラベル名の辞書
+        countries: list
+            国のリスト
+        filename: string
+            ファイル名
+        
+        Raises
+        ----------
+        TypeError
+            誤った引数の型が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            target_list = list(target_dict.keys())
+            label_list = list(target_dict.values())
+            title = label_list[0] + "と" + label_list[1] + "の推移"
+            filepath = settings.OUTPUT_PATH + filename
+            top_n_df = self.__extruct_countries__(target_list, countries)
+            self.__plot_connected_scatter__(top_n_df, target_dict, title, filepath)
         except TypeError:
             logging.error("引数の型が間違っています。")
             raise TypeError

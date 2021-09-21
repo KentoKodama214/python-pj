@@ -31,6 +31,20 @@ class TestExtructTopN(unittest.TestCase):
         異常系（型エラー）
         """ 
 
+class TestExtructCountries(unittest.TestCase):
+    """
+    AnalysisDataの__extruct_countries__メソッドのユニットテストクラス
+    """
+    def test_extruct_countries(self):
+        """
+        正常系
+        """
+    
+    def test_type_error(self):
+        """
+        異常系（型エラー）
+        """ 
+
 class TestExtructForWorldMap(unittest.TestCase):
     """
     AnalysisDataの__extruct_for_world_map__メソッドのユニットテストクラス
