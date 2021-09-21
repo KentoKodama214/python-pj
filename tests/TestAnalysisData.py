@@ -89,7 +89,7 @@ class TestConvertForSeaborn(unittest.TestCase):
 
 class TestPlotLine(unittest.TestCase):
     """
-    AnalysisDataのplot_lineメソッドのユニットテストクラス    
+    AnalysisDataの__plot_line__メソッドのユニットテストクラス    
     """
     def _mock_plot_line_plotly(self):
         """
@@ -114,9 +114,65 @@ class TestPlotLine(unittest.TestCase):
 
 class TestPlotConnectedScatter(unittest.TestCase):
     """
-    AnalysisDataのplot_connected_scatterメソッドのユニットテストクラス    
+    AnalysisDataの__plot_connected_scatter__メソッドのユニットテストクラス    
     """
     def test_plot_connected_scatter(self):
+        """
+        正常系
+        """
+    
+    def test_type_error(self):
+        """
+        異常系（型エラー）
+        """ 
+
+class TestPlotLineTopN(unittest.TestCase):
+    """
+    AnalysisDataのplot_line_top_nメソッドのユニットテストクラス    
+    """
+    def test_plot_line_top_n(self):
+        """
+        正常系
+        """
+    
+    def test_type_error(self):
+        """
+        異常系（型エラー）
+        """ 
+
+class TestPlotLineCountries(unittest.TestCase):
+    """
+    AnalysisDataのplot_line_countriesメソッドのユニットテストクラス    
+    """
+    def test_plot_line_countries(self):
+        """
+        正常系
+        """
+    
+    def test_type_error(self):
+        """
+        異常系（型エラー）
+        """ 
+
+class TestPlotConnectedScatterTopN(unittest.TestCase):
+    """
+    AnalysisDataのplot_connected_scatter_top_nメソッドのユニットテストクラス    
+    """
+    def test_plot_connected_scatter_top_n(self):
+        """
+        正常系
+        """
+    
+    def test_type_error(self):
+        """
+        異常系（型エラー）
+        """ 
+
+class TestPlotConnectedScatterCountries(unittest.TestCase):
+    """
+    AnalysisDataのplot_connected_scatter_countriesメソッドのユニットテストクラス    
+    """
+    def test_plot_connected_scatter_countries(self):
         """
         正常系
         """
