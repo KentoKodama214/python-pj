@@ -9,7 +9,7 @@ PASSWORD = 'root'
 # Path
 RESOURCE_PATH = './resources/data/'
 DDL_PATH = './resources/ddl/'
-OUTPUT_PATH = './python_pj/'
+OUTPUT_PATH = './docs/'
 
 # FileName
 WPP_TOTAL_POPULATION_BY_SEX = 'WPP2019_TotalPopulationBySex.zip'
