@@ -17,4 +17,4 @@
 - 中国は2030年頃、インドは2060年頃を境に減少に転じる
 - 2047年にナイジェリアがアメリカを追い越して世界第3位の人口になる
 - エジプト・エチオピア・コンゴ民主共和国で人口が伸びて上位10カ国入りする
-<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_world_map.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Top20.html' width='100%' height='600'></iframe>
