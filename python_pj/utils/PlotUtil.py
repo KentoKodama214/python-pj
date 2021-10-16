@@ -10,6 +10,7 @@ import seaborn as sns
 import plotly.express as px
 import logging
 import traceback
+from decimal import Decimal
 
 class SeabornUtil:
     """
@@ -270,7 +271,7 @@ class PlotlyUtil:
             raise Exception
 
     @staticmethod
-    def plot_connected_scatter(data, title="title", x="x",y="y", labels={"x": "x", "y": "y"}, color="color", filename="connected_scatter_plot.png"):
+    def plot_connected_scatter(data, title="title", x="x", y="y", labels={"x": "x", "y": "y"}, color="color", filename="connected_scatter_plot.png"):
         """
         Plotlyでの年単位のConnected Scatterプロット
         データが多すぎると、markerごとの年のtextが表示されなくなる
@@ -358,7 +359,8 @@ class PlotlyUtil:
             その他例外が発生した場合
         """
         try:
-            range_max=data[color].max()*1.2
+            range_max=data[color].max() * Decimal(1.2)
+            data[color] = data[color].astype(float)
             fig = px.choropleth(
                 data,
                 locations=locations,
@@ -367,6 +369,62 @@ class PlotlyUtil:
                 color_continuous_scale=px.colors.sequential.Rainbow,
                 animation_frame=data.index,
                 range_color=[0,range_max],
+                title=title
+            )
+            fig.write_html(filename)
+        except TypeError:
+            logging.error("引数の型が間違っています。")
+            raise TypeError
+        except AttributeError:
+            logging.error("引数の属性が間違っています。")
+            raise AttributeError
+        except ValueError:
+            logging.error("引数の値が間違っています。")
+            raise ValueError
+        except:
+            logging.error("PlotlyでのWorldMapプロットで予期しない例外が発生しました。")
+            traceback.print_exc()
+            raise Exception
+
+    @staticmethod
+    def plot_scatter_marginal_distribution(data, title="title", x="x", y="y", labels={"x": "x", "y": "y"}, filename="scatter_marginal_distribution_plot.html"):
+        """
+        PlotlyでのScatter Marginal Distributionプロット
+        
+        Parameters
+        ----------
+        data: DataFrame
+            pandasデータ
+        title: string
+            タイトル
+        x: string
+            x軸に使用するdataのカラム名
+        y: string
+            y軸に使用するdataのカラム名
+        labels: dist
+            x軸とy軸のラベル名のdictionary
+        filename: string
+            プロットのhtml出力ファイル名
+
+        Raises
+        ----------
+        TypeError
+            誤った型が指定された場合
+        AttributeError
+            誤った属性が指定された場合
+        ValueError
+            誤った値が指定された場合
+        Exception
+            その他例外が発生した場合
+        """
+        try:
+            fig = px.scatter(
+                data,
+                x=x,
+                y=y,
+                labels=labels,
+                marginal_x="histogram",
+                marginal_y="histogram",
                 title=title
             )
             fig.write_html(filename)
