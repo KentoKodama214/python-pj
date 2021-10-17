@@ -29,19 +29,160 @@
 <iframe src='https://kentokodama214.github.io/python-pj/PopDensity_Top20_PopTotal.html' width='100%' height='600'></iframe>
 
 ## 2017年までの労働所得の推移
-
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_Top20.html' width='100%' height='600'></iframe>
 
 ## 2021年時点の総人口の上位20カ国の2017年までの労働所得の推移
-
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_Top20_PopTotal.html' width='100%' height='600'></iframe>
 
-## 輸出入の推移
+## 2020年までの輸入額の推移
+<iframe src='https://kentokodama214.github.io/python-pj/Import_Top20.html' width='100%' height='600'></iframe>
 
+## 2021年時点の総人口の上位20カ国の2020年までの輸入額の推移
+<iframe src='https://kentokodama214.github.io/python-pj/Import_Top20_PopTotal.html' width='100%' height='600'></iframe>
+
+## 2020年までの輸出額の推移
+<iframe src='https://kentokodama214.github.io/python-pj/Export_Top20.html' width='100%' height='600'></iframe>
+
+## 2021年時点の総人口の上位20カ国の2020年までの輸出額の推移
+<iframe src='https://kentokodama214.github.io/python-pj/Export_Top20_PopTotal.html' width='100%' height='600'></iframe>
 
 ## GDPの推移
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Top20.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_TOP20.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Top20_PopTotal.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_TOP20_PopTotal.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Import_corr.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Export_corr.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_Import_corr.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_Export_corr.html' width='100%' height='600'></iframe>
 
 
+## 各地域の労働所得・輸出入額・GDPの推移
+### 東アジア
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_East_Asia.html' width='100%' height='600'></iframe>
+
+### 東南アジア
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_South_East_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_East_Asia.html' width='100%' height='600'></iframe>
+
+### 南アジア・西アジア
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_South_and_West_Asia.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_and_West_Asia.html' width='100%' height='600'></iframe>
+
+### アフリカ
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa.html' width='100%' height='600'></iframe>
+
+### 北米〜南米
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_North_and_South_America.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_and_South_America.html' width='100%' height='600'></iframe>
+
+### 北ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_North_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_Europa.html' width='100%' height='600'></iframe>
+
+### 南ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_South_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_Europa.html' width='100%' height='600'></iframe>
+
+### 西ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_West_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_West_Europa.html' width='100%' height='600'></iframe>
+
+### 東ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_East_Europa.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_East_Europa.html' width='100%' height='600'></iframe>
 
 # 考察
 総人口、GDP、輸出入、労働所得のデータから、私は以下のような考察をした。
