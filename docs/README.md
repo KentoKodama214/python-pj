@@ -50,23 +50,38 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/Import_Top20_PopTotal.html' width='100%' height='600'></iframe> -->
 
 ## 2020年時点で輸出額の上位20カ国の2020年までの輸出額の推移
+2020年時点の輸出額の上位20カ国に対して、1950年〜2020年の輸出額の推移をグラフ化した。その結果からわかることは、
+- 1950年以降、輸入額は全体的に右肩上がりで増加している
+- 2020年の日本の輸入額は、中国・アメリカ・ドイツについで世界第4位
+- 輸入額のグラフも見ると、2020年はアメリカは輸入超過に対し、中国は輸出超過、日本はほぼ同等となっている
 <iframe src='https://kentokodama214.github.io/python-pj/Export_Top20.html' width='100%' height='600'></iframe>
 
 <!-- 「2020年時点で輸入額の上位20カ国の2020年までの輸出額の推移」と結果はそれほど変わらないため、省略 -->
 <!-- ## 2021年時点の総人口の上位20カ国の2020年までの輸出額の推移 -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_Top20_PopTotal.html' width='100%' height='600'></iframe> -->
 
-## 輸出額と輸入額の相関
-<iframe src='https://kentokodama214.github.io/python-pj/Export_Import_corr.html' width='100%' height='600'></iframe>
+<!-- ## 輸出額と輸入額の相関 -->
+<!-- 輸出額と輸入額との相関は見られたが、それ以上の考察ができないため、省略（未来のデータが有れば考察できるが過去のデータしかない） -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_Import_corr.html' width='100%' height='600'></iframe> -->
 
 ## 2021年時点でGDPの上位20カ国の2027年までのGDPの推移
+2020年時点のNGDPD(※1)とPPPSH(※2)の上位20カ国に対して、1980年〜2026年のNGDPD/PPPSHの推移をグラフ化した。その結果からわかることは
+- 中国がNGDPD・PPPSHともに第1位(※3)で圧倒的に高く、著しい上昇傾向にある
+- 日本は2020年からNGDPDがわずかに上昇傾向にあるものの、PPPSHは1991年のバブル崩壊から減少傾向にある
+- インドはNGDPDがわずかに上昇傾向で、PPPSHは2009年から日本を抜いて第2位(※3)で今後も上昇傾向にある
+- 中国・日本・インド以外の各国も、NGDPDはわずかに上昇傾向であり、PPPSHはわずかに減少傾向かほぼ横ばいである
+
+※1 NGDPD: 市場の為替レート（年平均）を使用して米ドルに換算された自国通貨の現在価格の国内総生産(GDP)
+※2 PPPSH: 世界全体の購買力平価（PPP）シェアに基づく国内総生産
+※3 アメリカの数値は今回使用したデータに含まれていないため、実際の順位は異なる可能性もある
 <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Top20.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_TOP20.html' width='100%' height='600'></iframe>
 <!-- 「2021年時点でGDPの上位20カ国の2027年までのGDPの推移」と結果はそれほど変わらないため、省略 -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Top20_PopTotal.html' width='100%' height='600'></iframe> -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_TOP20_PopTotal.html' width='100%' height='600'></iframe> -->
-<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Import_corr.html' width='100%' height='600'></iframe>
-<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Export_corr.html' width='100%' height='600'></iframe>
+<!-- GDPと輸出入との相関は見られたが、それ以上の考察ができないため、省略（未来のデータが有れば考察できるが過去のデータしかない） -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Import_corr.html' width='100%' height='600'></iframe> -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_Export_corr.html' width='100%' height='600'></iframe> -->
 <!-- NGDPDと輸出入ほどの相関は見られなかったため、省略 -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_Import_corr.html' width='100%' height='600'></iframe> -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_Export_corr.html' width='100%' height='600'></iframe> -->
@@ -250,7 +265,16 @@
 - 人口の増加率の観点から、ナイジェリアを中心にアフリカの著しい経済成長が見込まれる
 - 労働所得は、総人口・GDP・輸出入の変化とは相関がない
 - 考察4
-- 考察5
+- 地域ごとで見てみると
+- - 東アジアは、◯◯
+- - 東南アジアは、◯◯
+- - 南アジア・西アジアは、◯◯
+- - アフリカは、◯◯
+- - 北米〜南米は、◯◯
+- - 北ヨーロッパは、◯◯
+- - 南ヨーロッパは、◯◯
+- - 西ヨーロッパは、◯◯
+- - 東ヨーロッパは、◯◯
 
 # 結論
 上記の考察をもとに導き出した結論は
