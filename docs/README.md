@@ -293,9 +293,9 @@
 - 輸出入額はいずれの国でも増加と減少を繰り返しながら徐々に増加している
 - 日本の輸出入額と比較すると、<font color="Red">アメリカは日本の2倍以上で、</font><font color="Blue">ブラジル・カナダ・メキシコは日本より低い</font>
 - <font color="Red">NGDPDはブラジル・カナダ・メキシコで2020年に減少しているものの2026年にかけて著しく増加している</font>
-- 日本のNGDPDと比較すると、<font color="Blue">ブラジル・カナダ・メキシコで日本の2分の1以下である</font>
+- 日本のNGDPDと比較すると、<font color="Blue">ブラジル・カナダ・メキシコは日本の2分の1以下である</font>
 - <font color="Blue">PPPSHはブラジル・カナダ・メキシコで年々減少している</font>
-- 日本のPPPSHと比較すると、<font color="Blue">ブラジル・カナダ・メキシコで日本よりわずかに低い</font>
+- 日本のPPPSHと比較すると、<font color="Blue">ブラジル・カナダ・メキシコは日本よりわずかに低い</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
@@ -317,14 +317,21 @@
 
 ### 北ヨーロッパ
 以下の各種結果からわかることは、
-- 総人口は
+- 総人口はイギリスは2100年まで年々緩やかに増加していて、それ以外の国はほぼ横ばい
 - 労働所得は
-- 輸出入額は
-- 日本の輸出入額と比較すると、
-- NGDPDは
-- 日本のNGDPDと比較すると、
+    - イギリス・デンマークはわずかに減少傾向にあるが、日本の労働所得より高い
+    - アイスランド・スウェーデンは増加と減少を繰り返して停滞していて、日本の労働所得より高い
+    - ノルウェーは増加と減少を繰り返しながら増加しているが、日本の労働所得よりわずかに低い
+    - アイルランドは年々減少していて、日本の労働所得より低い
+- 輸出入額はいずれの国も2008年ころから増加と減少を繰り返して停滞している
+- 日本の輸出入額と比較すると、イギリスは日本と同等で、<font color="Blue">それ以外の国は日本の3分の1程度である</font>
+- <font color="Red">NGDPDはいずれの国でも2020年から2026年にかけて年々著しく増加している</font>
+- 日本のNGDPDと比較すると、<font color="Blue">イギリスは日本の3分の2程度で、それ以外の国は日本の8分の1以下である</font>
 - PPPSHは
-- 日本のPPPSHと比較すると、
+    - アイルランドでは2013年から2020年代にかけて増加している
+    - アイスランドは増加と減少を繰り返して停滞している
+    - <font color="Blue">イギリス・デンマーク・ノルウェー・スウェーデンの国は年々減少している</font>
+- 日本のPPPSHと比較すると、<font color="Blue">イギリスは日本の3分の2程度で、それ以外の国は日本の6分の1以下である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
@@ -448,8 +455,8 @@
         - インド以外の国は、総人口・NGDPD・PPPSH・輸出入額も増加していて緩やかな経済成長が見込めるが、それを考慮しても全体の規模は日本よりも圧倒的に小さい
     - アフリカ(北半球)は、<font color="Red">ナイジェリア・エジプトで総人口・NGDPDも増加していて経済成長が見込める</font>が、<font color="Blue">全体の規模は日本よりも圧倒的に小さく、先進国と同等レベルに到達するとしてもまだまだ先（少なくとも10年以上先）になる</font>と考えられる
     - アフリカ(南半球)は、<font color="Red">各国で総人口・NGDPDも増加していて緩やかな経済成長が見込める</font>が、<font color="Blue">全体の規模は日本よりも圧倒的に小さく、先進国と同等レベルに到達するとしてもまだまだ先（少なくとも10年以上先）になる</font>と考えられる
-    - 北米〜南米は、<font color="Red">アメリカは先進国にもかかわらず今後も人口増加が見込めるため今後も経済成長が見込める</font>が、それ以外の国でも経済成長が見込めても著しいものではないと考えられる
-    - 北ヨーロッパは、◯◯
+    - 北米〜南米は、<font color="Red">アメリカは先進国にもかかわらず今後も人口増加が見込めるため経済成長が見込める</font>が、それ以外の国でも経済成長が見込めても著しいものではないと考えられる
+    - 北ヨーロッパは、<font color="Red">イギリスは先進国にもかかわらず今後も人口増加が見込めるため緩やかな経済成長が見込める</font>が、それ以外の国でも経済成長が見込めても著しいものではないと考えられる
     - 南ヨーロッパは、◯◯
     - 西ヨーロッパは、◯◯
     - 東ヨーロッパは、◯◯
