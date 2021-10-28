@@ -249,14 +249,21 @@
 
 ### アフリカ(南半球)
 以下の各種結果からわかることは
-- 総人口は
+- 総人口は南アフリカ共和国で2100年まで増加していて、中でもコンゴ民主共和国とタンザニアの増加が著しい
 - 労働所得は
+    - 南アフリカ共和国では年々増加しており、日本の労働所得とほぼ同等である
+    - ケニアでは増加と減少を繰り返していて停滞している
 - 輸出入額は
-- 日本の輸出入額と比較すると、
-- NGDPDは
-- 日本のNGDPDと比較すると、
+    - 南アフリカ共和国は2008年から増加と減少を繰り返していて停滞している
+    - ケニアは2012年から増加と減少を繰り返していて停滞している
+    - コンゴ民主共和国は輸入額は増加と減少を繰り返していて停滞していて、輸出額は増加と減少を繰り返していて徐々に増加している
+- 日本の輸出入額と比較すると、<font color="Blue">いずれの国も日本よりはるかに低く、一番高い南アフリカ共和国でも日本の6分の1程度である</font>
+- NGDPDは全般的に増加しており、<font color="Red">南アフリカ共和国は2020年から著しく増加し、ケニアとコンゴ民主共和国では年々徐々に増加している</font>
+- 日本のNGDPDと比較すると、<font color="Blue">南アフリカ共和国では日本の15分の1程度、ケニアとコンゴ民主共和国では日本の40分の1以下である</font>
 - PPPSHは
-- 日本のPPPSHと比較すると、
+    - <font color="Blue">南アフリカ共和国は年々減少している</font>
+    - ケニアとコンゴ民主共和国ではほぼ横ばい
+- 日本のPPPSHと比較すると、<font color="Blue">南アフリカ共和国では日本の7分の1程度、ケニアとコンゴ民主共和国では日本の15分の1以下である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
@@ -437,7 +444,7 @@
         - インドは今後、<font color="Red">2060年頃までは人口増加とともにNGDPD・PPPSH・輸出入額も増加することで経済成長が見込める</font>
         - インド以外の国は、総人口・NGDPD・PPPSH・輸出入額も増加していて緩やかな経済成長が見込めるが、それを考慮しても全体の規模は日本よりも圧倒的に小さい
     - アフリカ(北半球)は、<font color="Red">ナイジェリア・エジプトで総人口・NGDPDも増加していて経済成長が見込める</font>が、<font color="Blue">全体の規模は日本よりも圧倒的に小さく、先進国と同等レベルに到達するとしてもまだまだ先（少なくとも10年以上先）になる</font>と考えられる
-    - アフリカ(南半球)は、◯◯
+    - アフリカ(南半球)は、<font color="Red">各国で総人口・NGDPDも増加していて緩やかな経済成長が見込める</font>が、<font color="Blue">全体の規模は日本よりも圧倒的に小さく、先進国と同等レベルに到達するとしてもまだまだ先（少なくとも10年以上先）になる</font>と考えられる
     - 北米〜南米は、◯◯
     - 北ヨーロッパは、◯◯
     - 南ヨーロッパは、◯◯
