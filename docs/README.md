@@ -88,6 +88,18 @@
 
 
 ## 各地域の労働所得・輸出入額・GDPの推移
+より具体的な推移を見るため、
+- 東アジア: 日本、中国
+- 東南アジア: インドネシア、フィリピン、タイ、ベトナム、シンガポール、マレーシア
+- 南アジア・西アジア: インド、バングラデシュ、パキスタン、トルコ
+- アフリカ(北半球): エジプト、エチオピア、ナイジェリア、ニジェール
+- アフリカ(南半球): ケニア、南アフリカ共和国、コンゴ民主共和国、タンザニア
+- 北米〜南米
+- 北ヨーロッパ
+- 南ヨーロッパ
+- 西ヨーロッパ
+- 東ヨーロッパ
+
 ### 東アジア
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
@@ -145,24 +157,44 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_South_and_West_Asia.html' width='100%' height='600'></iframe> -->
 <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_and_West_Asia.html' width='100%' height='600'></iframe>
 
-### アフリカ
-<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
-<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+### アフリカ(北半球)
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
-<!-- <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe> -->
-<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
-<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe> -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
 <!-- 輸出額と輸入額は概ね相関があることがわかったため、省略 -->
-<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_Africa.html' width='100%' height='600'></iframe> -->
-<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
-<!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe> -->
-<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_Africa.html' width='100%' height='600'></iframe>
-<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_Africa.html' width='100%' height='600'></iframe>
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
-<!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_Africa.html' width='100%' height='600'></iframe> -->
-<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa.html' width='100%' height='600'></iframe>
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
+
+### アフリカ(南半球)
+<iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<!-- 特段、傾向が見られた訳ではないため、省略 -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_LabourIncome_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/Export_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<!-- 特段、傾向が見られた訳ではないため、省略 -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_LabourIncome_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<!-- 輸出額と輸入額は概ね相関があることがわかったため、省略 -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/Export_vs_Import_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<!-- 特段、傾向が見られた訳ではないため、省略 -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_LabourIncome_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/NGDPD_vs_Export_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+<!-- 特段、傾向が見られた訳ではないため、省略 -->
+<!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
+<iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
+
 
 ### 北米〜南米
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
