@@ -146,8 +146,9 @@
 ### 東南アジア
 以下の各種結果からわかることは
 - 総人口はタイ・シンガポール以外は2020年以降も緩やかに増加するものの、いずれ頭打ち担って減少に転じる
-- 労働所得はマレーシアとシンガポールは年々増加しており、インドネシア・フィリピン・タイ・ベトナムは年々減少している
-- いずれの国も労働所得は日本より低い
+- 労働所得は
+    - マレーシアとシンガポールは年々増加しているが、日本の労働所得より低い
+    - インドネシア・フィリピン・タイ・ベトナムは年々減少していて、日本の労働所得より低い
 - 輸出入額は
     - ベトナムは2020年まで年々増加している
     - ベトナム以外の国は2010年代まで年々増加しつつも、2010年代あたりから増加と減少を繰り返して停滞していて2019年・2020年には減少している
@@ -178,8 +179,9 @@
 ### 南アジア・西アジア
 以下の各種結果からわかることは
 - 総人口はバングラデシュ・トルコではほぼ横ばい、インドは年々増加して2060年頃に頭打ち担って減少に転じ、パキスタンでは年々増加して2095年頃に頭打ち担って減少に転じる
-- 労働所得はインドとバングラデシュでは年々減少しており、パキスタンとトルコも増加と減少を繰り返しながら停滞している
-- 日本の労働所得と比較すると、インドは日本よりわずかに低く、バングラデシュ・パキスタン・トルコははるかに低い
+- 労働所得は
+    - インドとバングラデシュでは年々減少していて、日本の労働所得よりインドはわずかに低く、バングラデシュは遥かに低い
+    - パキスタンとトルコも増加と減少を繰り返しながら停滞していて、日本の労働所得よりはるかに低い
 - 輸出入額は
     - バングラデシュでは年々増加して2020年で減少している
     - インド・パキスタン・トルコでは2010年代まで年々増加しつつも2010年代あたりから増加と減少を繰り返して停滞していて2020年には減少している
@@ -207,6 +209,25 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_and_West_Asia.html' width='100%' height='600'></iframe> -->
 
 ### アフリカ(北半球)
+以下の各種結果からわかることは
+- 総人口はすべての国で2100年まで増加していて、中でもナイジェリアの増加が著しい
+- 労働所得は
+    - ナイジェリアは2010年以降で増加しており、日本の労働所得より高い
+    - エチオピアは年々減少していて、日本の労働所得より低い
+    - エジプト・ニジェールは増加と減少を繰り返して停滞していて、日本の労働所得より低い
+- 輸出入額は
+    - ナイジェリアは2008年から増加と減少を繰り返していて、輸入額は停滞していて輸出額は減少している
+    - エジプトは輸入額は2012年から、輸出額は2008年から増加と減少を繰り返していて停滞している
+    - エチオピア・ニジェールはほぼ横ばい
+- 日本の輸出入額と比較すると、<font color="Blue">いずれの国も日本よりはるかに低く、一番高いエジプトでも日本の10分の1程度である</font>
+- <font color="Red">NGDPDはいずれの国も総人口の増加とともに増加しており、特にナイジェリアとエジプトで著しく増加している</font>
+- 日本のNGDPDと比較すると、<font color="Blue">ナイジェリアでは日本の7分の1程度、エジプトでは日本の10分の1程度である</font>
+- PPPSHは
+    - ナイジェリアは2014年をピークに徐々に減少している
+    - <font color="Red">エジプトは増加と減少を繰り返しながら徐々に増加している</font>
+    - エチオピアは年々徐々に増加している
+    - ニジェールはほぼ横ばい
+- 日本のPPPSHと比較すると、<font color="Blue">ナイジェリアとエジプトでは日本の3分の1程度である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
@@ -227,6 +248,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
 
 ### アフリカ(南半球)
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
@@ -247,6 +277,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
 
 ### 北米〜南米
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
@@ -267,6 +306,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_and_South_America.html' width='100%' height='600'></iframe> -->
 
 ### 北ヨーロッパ
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
@@ -287,6 +335,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 南ヨーロッパ
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
@@ -307,6 +364,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 西ヨーロッパ
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
@@ -327,6 +393,15 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_West_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 東ヨーロッパ
+以下の各種結果からわかることは
+- 総人口は
+- 労働所得は
+- 輸出入額は
+- 日本の輸出入額と比較すると、
+- NGDPDは
+- 日本のNGDPDと比較すると、
+- PPPSHは
+- 日本のPPPSHと比較すると、
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_East_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
@@ -351,7 +426,8 @@
 - 総人口の観点から、中国・インドの市場規模は向こう数十年は他の国々を圧倒する
 - 人口の増加率の観点から、ナイジェリアを中心にアフリカの著しい経済成長が見込まれる
 - 労働所得は、総人口・GDP・輸出入の変化とは大きな相関がない
-- 考察4
+- 考察4: 輸出入額
+- 考察5: NGDPD/PPPSH
 - 地域ごと・主要国ごとに見てみると
     - 東アジアは、日本と中国で傾向が大きく異なり、
         - 日本は今後、徐々に総人口・NGDPD・PPPSH・輸出入額・労働所得も徐々に減少することで経済成長は見込めず、徐々に衰退していくと考えられる
@@ -360,7 +436,8 @@
     - 南アジア・西アジアは、インドとそれ以外の国で大きく異なり
         - インドは今後、<font color="Red">2060年頃までは人口増加とともにNGDPD・PPPSH・輸出入額も増加することで経済成長が見込める</font>
         - インド以外の国は、総人口・NGDPD・PPPSH・輸出入額も増加していて緩やかな経済成長が見込めるが、それを考慮しても全体の規模は日本よりも圧倒的に小さい
-    - アフリカは、◯◯
+    - アフリカ(北半球)は、<font color="Red">ナイジェリア・エジプトで総人口・NGDPDも増加していて経済成長が見込める</font>が、<font color="Blue">全体の規模は日本よりも圧倒的に小さく、先進国と同等レベルに到達するとしてもまだまだ先（少なくとも10年以上先）になる</font>と考えられる
+    - アフリカ(南半球)は、◯◯
     - 北米〜南米は、◯◯
     - 北ヨーロッパは、◯◯
     - 南ヨーロッパは、◯◯
