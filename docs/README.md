@@ -145,13 +145,17 @@
 
 ### 東南アジア
 以下の各種結果からわかることは
-- 人口はタイ・シンガポール以外は2020年以降も緩やかに増加するものの、いずれ頭打ち担って減少に転じる
-- 労働所得と総人口はほとんど相関はなく、マレーシアとシンガポールは年々増加しており、インドネシア・フィリピン・タイ・ベトナムは年々減少している
+- 総人口はタイ・シンガポール以外は2020年以降も緩やかに増加するものの、いずれ頭打ち担って減少に転じる
+- 労働所得はマレーシアとシンガポールは年々増加しており、インドネシア・フィリピン・タイ・ベトナムは年々減少している
 - いずれの国も労働所得は日本より低い
-- 輸出入額と総人口はほとんど相関はなく、輸出入額はベトナムは2020年まで年々増加しているが、それ以外の国は2010年代まで年々増加しつつも2010年代あたりから増加と減少を繰り返して停滞していて2019年・2020年には減少している
-- <font color="Blue">輸出入額は日本と比較すると約2分の1から3分の1程度である</font>
-- <font color="Blue">NGDPDは総人口によらず年々増加しているものの、日本のNGDPDと比較するとインドネシアで約3分の1程度、それ以外の国では約10分の1程度である</font>
-- <font color="Blue">PPPSHはタイを除いて総人口によらず年々増加しているものの、日本のNGDPDと比較するとインドネシアで約3分の1程度、それ以外の国では約8分の1程度である</font>
+- 輸出入額は
+    - ベトナムは2020年まで年々増加している
+    - ベトナム以外の国は2010年代まで年々増加しつつも、2010年代あたりから増加と減少を繰り返して停滞していて2019年・2020年には減少している
+- 日本の輸出入額のと比較すると、<font color="Blue">日本の約2分の1から3分の1程度である</font>
+- <font color="Red">NGDPDは総人口によらず年々増加している</font>
+- 日本のNGDPDと比較すると、<font color="Blue">インドネシアでは日本の3分の1程度、それ以外の国では日本の10分の1程度である</font>
+- <font color="Red">PPPSHはタイを除いて総人口によらず年々増加している</font>
+- 日本のPPPSHと比較すると、<font color="Blue">インドネシアでは日本よりわずかに低く、それ以外の国では日本の3分の1程度である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
@@ -172,6 +176,17 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_East_Asia.html' width='100%' height='600'></iframe> -->
 
 ### 南アジア・西アジア
+以下の各種結果からわかることは
+- 総人口はバングラデシュ・トルコではほぼ横ばい、インドは年々増加して2060年頃に頭打ち担って減少に転じ、パキスタンでは年々増加して2095年頃に頭打ち担って減少に転じる
+- 労働所得はインドとバングラデシュでは年々減少しており、パキスタンとトルコも増加と減少を繰り返しながら停滞している
+- 日本の労働所得と比較すると、インドは日本よりわずかに低く、バングラデシュ・パキスタン・トルコははるかに低い
+- 輸出入額は
+    - バングラデシュでは年々増加して2020年で減少している
+    - インド・パキスタン・トルコでは2010年代まで年々増加しつつも2010年代あたりから増加と減少を繰り返して停滞していて2020年には減少している
+- 日本の輸出入額と比較すると、<font color="Blue">インドは日本の約2分の1程度、バングラデシュ・パキスタン・トルコは日本の2分の1以下である</font>
+- <font color="Red">NGDPD・PPPSHはパキスタンを除いて総人口によらず年々増加している</font>
+- 日本のNGDPDと比較すると、<font color="Blue">インドでは日本よりわずかに低く、それ以外の国では日本の4分の1以下である</font>
+- 日本のPPPSHと比較すると、<font color="Red">インドでは日本の2倍以上、</font><font color="Blue">それ以外の国では日本の2分の1程度である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
@@ -230,7 +245,6 @@
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_LabourIncome_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe> -->
-
 
 ### 北米〜南米
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
@@ -341,9 +355,11 @@
 - 地域ごと・主要国ごとに見てみると
     - 東アジアは、日本と中国で傾向が大きく異なり、
         - 日本は今後、徐々に総人口・NGDPD・PPPSH・輸出入額・労働所得も徐々に減少することで経済成長は見込めず、徐々に衰退していくと考えられる
-        - 中国は今後、2030年頃までは人口増加とともにNGDPD・PPPSH・輸出入額も増加することで経済成長が見込めるが、2030年以降は人口減少に伴って徐々に衰退する可能性があると考えられる
+        - 中国は今後、<font color="Red">2030年頃までは人口増加とともにNGDPD・PPPSH・輸出入額も増加することで経済成長が見込める</font>が、2030年以降は人口減少に伴って徐々に衰退する可能性があると考えられる
     - 東南アジアは、全般的に総人口・NGDPD・PPPSH・輸出入額も増加していて緩やかな経済成長が見込めるが、それを考慮しても全体の規模は日本よりも圧倒的に小さい
-    - 南アジア・西アジアは、◯◯
+    - 南アジア・西アジアは、インドとそれ以外の国で大きく異なり
+        - インドは今後、<font color="Red">2060年頃までは人口増加とともにNGDPD・PPPSH・輸出入額も増加することで経済成長が見込める</font>
+        - インド以外の国は、総人口・NGDPD・PPPSH・輸出入額も増加していて緩やかな経済成長が見込めるが、それを考慮しても全体の規模は日本よりも圧倒的に小さい
     - アフリカは、◯◯
     - 北米〜南米は、◯◯
     - 北ヨーロッパは、◯◯
