@@ -38,9 +38,21 @@ def main():
         # 総人口の上位20カ国の労働所得の推移
         future_list.append(executor.submit(analysisData.plot_line_top_n, target_dict = {"Year": "年", "LabourIncome": "労働所得", "PopTotal": "総人口"}, extruct_target = "PopTotal", year = 2017, filename = "LabourIncome_Top20_PopTotal"))
 
-        # 総人口・人口密度と労働所得の相関（特に相関は見られなかったので、省略）
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "LabourIncome": "労働所得"}, filename = "LabourIncome_PopTotal_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "LabourIncome": "労働所得"}, filename = "LabourIncome_PopDensity_corr"))
+        # 総人口・人口密度と労働所得の相関（特に相関は見られなかった）
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "LabourIncome": "労働所得"}, filename = "LabourIncome_PopTotal_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "LabourIncome": "労働所得"}, filename = "LabourIncome_PopDensity_corr"))
+
+        # 各エリアでの総人口の推移
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Japan", "China"], filename = "PopTotal_East_Asia"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Indonesia", "Philippines", "Thailand", "Viet Nam", "Singapore", "Malaysia"], filename = "PopTotal_South_East_Asia"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Bangladesh", "India", "Pakistan", "Turkey"], filename = "PopTotal_South_and_West_Asia"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Egypt", "Ethiopia", "Nigeria", "Niger"], filename = "PopTotal_Africa_Northern_Hemisphere"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Kenya", "South Africa", "Democratic Republic of the Congo", "United Republic of Tanzania"], filename = "PopTotal_Africa_Southern_Hemisphere"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Brazil", "Mexico", "Canada"], filename = "PopTotal_North_and_South_America"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Sweden", "United Kingdom", "Norway", "Iceland", "Ireland", "Denmark"], filename = "PopTotal_North_Europa"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Italy", "Spain", "Portugal", "Greece"], filename = "PopTotal_South_Europa"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Germany", "Belgium", "France", "Switzerland", "Netherlands"], filename = "PopTotal_West_Europa"))
+        future_list.append(executor.submit(analysisData.plot_line_countries, target_dict = {"Year": "年", "PopTotal": "総人口"}, countries = ["Russian Federation", "Ukraine", "Poland", "Romania"], filename = "PopTotal_East_Europa"))
 
         # 各エリアでの総人口と労働所得の推移
         future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"PopTotal": "総人口", "LabourIncome": "労働所得"}, countries = ["Japan", "China"], filename = "LabourIncome_vs_PopTotal_East_Asia"))
@@ -60,10 +72,10 @@ def main():
         # 総人口の上位20カ国の輸入額の推移
         future_list.append(executor.submit(analysisData.plot_line_top_n, target_dict = {"Year": "年", "Import": "輸入額", "PopTotal": "総人口"}, extruct_target = "PopTotal", year = 2020, filename = "Import_Top20_PopTotal"))
 
-        # 総人口・人口密度・労働所得と輸入額の相関（特に相関は見られなかったので、省略）
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "Import": "輸入額"}, filename = "Import_PopTotal_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "Import": "輸入額"}, filename = "Import_PopDensity_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "Import": "輸入額"}, filename = "Import_LabourIncome_corr"))
+        # 総人口・人口密度・労働所得と輸入額の相関（特に相関は見られなかった）
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "Import": "輸入額"}, filename = "Import_PopTotal_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "Import": "輸入額"}, filename = "Import_PopDensity_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "Import": "輸入額"}, filename = "Import_LabourIncome_corr"))
 
         # 各エリアでの総人口と輸入額の推移
         future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"PopTotal": "総人口", "Import": "輸入額"}, countries = ["Japan", "China"], filename = "Import_vs_PopTotal_East_Asia"))
@@ -95,10 +107,10 @@ def main():
         # 総人口の上位20カ国の輸出額の推移
         future_list.append(executor.submit(analysisData.plot_line_top_n, target_dict = {"Year": "年", "Export": "輸出額", "PopTotal": "総人口"}, extruct_target = "PopTotal", year = 2020, filename = "Export_Top20_PopTotal"))
         
-        # 総人口・人口密度・労働所得と輸出額の相関（特に相関は見られなかったので、省略）
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "Export": "輸出額"}, filename = "Export_PopTotal_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "Export": "輸出額"}, filename = "Export_PopDensity_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "Export": "輸出額"}, filename = "Export_LabourIncome_corr"))
+        # 総人口・人口密度・労働所得と輸出額の相関（特に相関は見られなかった）
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "Export": "輸出額"}, filename = "Export_PopTotal_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "Export": "輸出額"}, filename = "Export_PopDensity_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "Export": "輸出額"}, filename = "Export_LabourIncome_corr"))
         
         # 輸入額と輸出額の相関
         future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"Import": "輸入額", "Export": "輸出額"}, filename = "Export_Import_corr"))
@@ -147,19 +159,19 @@ def main():
         future_list.append(executor.submit(analysisData.plot_line_top_n, target_dict = {"Year": "年", "NGDPD": "NGDPD", "PopTotal": "総人口"}, extruct_target = "PopTotal", filename = "NGDPD_Top20_PopTotal"))
         future_list.append(executor.submit(analysisData.plot_line_top_n, target_dict = {"Year": "年", "PPPSH": "PPPSH", "PopTotal": "総人口"}, extruct_target = "PopTotal", filename = "PPPSH_TOP20_PopTotal"))
 
-        # 総人口・人口密度・労働所得とNGDPDの相関（特に相関は見られなかったので、省略）
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "NGDPD": "NGDPD"}, filename = "NGDPD_PopTotal_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "NGDPD": "NGDPD"}, filename = "NGDPD_PopDensity_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "NGDPD": "NGDPD"}, filename = "NGDPD_LabourIncome_corr"))
+        # 総人口・人口密度・労働所得とNGDPDの相関（特に相関は見られなかった）
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "NGDPD": "NGDPD"}, filename = "NGDPD_PopTotal_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "NGDPD": "NGDPD"}, filename = "NGDPD_PopDensity_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "NGDPD": "NGDPD"}, filename = "NGDPD_LabourIncome_corr"))
 
         # 輸入額・輸出額とNGDPDの相関
         future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"Import": "輸入額", "NGDPD": "NGDPD"}, filename = "NGDPD_Import_corr"))
         future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"Export": "輸出額", "NGDPD": "NGDPD"}, filename = "NGDPD_Export_corr"))
 
-        # 総人口・人口密度・労働所得とPPPSHの相関（特に相関は見られなかったので、省略）
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "PPPSH": "PPPSH"}, filename = "PPPSH_PopTotal_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "PPPSH": "PPPSH"}, filename = "PPPSH_PopDensity_corr"))
-        # future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "PPPSH": "PPPSH"}, filename = "PPPSH_LabourIncome_corr"))
+        # 総人口・人口密度・労働所得とPPPSHの相関（特に相関は見られなかった）
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopTotal": "総人口", "PPPSH": "PPPSH"}, filename = "PPPSH_PopTotal_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"PopDensity": "人口密度", "PPPSH": "PPPSH"}, filename = "PPPSH_PopDensity_corr"))
+        future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"LabourIncome": "労働所得", "PPPSH": "PPPSH"}, filename = "PPPSH_LabourIncome_corr"))
 
         # 輸入額・輸出額とPPPSHの相関
         future_list.append(executor.submit(analysisData.plot_correlation, target_dict = {"Import": "輸入額", "PPPSH": "PPPSH"}, filename = "PPPSH_Import_corr"))

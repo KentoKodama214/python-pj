@@ -6,9 +6,9 @@
 - インドの著しい伸びで減少傾向の中国を追い越す
 - アジア諸国では、インド・中国を除くとインドネシア・パキスタンで人口が伸びている
 - ヨーロッパ諸国の人口は伸びておらず、ほぼ横ばい
-- 北米〜南米では、アメリカの人口は2100年まで伸び続けているものの、その他はほぼ横ばい
+- 北米〜南米では、<font color="Red">アメリカの人口は2100年まで伸び続けている</font>ものの、その他はほぼ横ばい
 - オーストラリアもほぼ横ばい
-- アフリカ諸国では、ナイジェリアを中心にエジプト・エチオピア・コンゴ民主共和国など多くの国で人口が伸びている
+- <font color="Red">アフリカ諸国では、ナイジェリアを中心にエジプト・エチオピア・コンゴ民主共和国など多くの国で人口が伸びている</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_world_map.html' width='100%' height='600'></iframe>
 
 ## 2021年時点の総人口の上位20カ国の総人口の推移
@@ -101,7 +101,7 @@
 - 東ヨーロッパ： ロシア、ウクライナ、ポーランド、ルーマニア
 
 ### 東アジア
-各種結果からわかることは
+以下の各種結果からわかることは
 - 日本は
     - 2004年〜2017年にかけて人口が僅かに減少傾向で、労働所得も減少傾向にある
     - 2012年まで人口増加とともに輸入額も増加したが、そこから人口減少に伴って2020年にかけて輸入額も減少している
@@ -114,7 +114,7 @@
     - 2018年まで人口増加とともに輸入額も増加したが、2020年にかけてわずかに減少している
     - 2020年まで人口増加とともに輸出額も増加している
     - 2026年まで人口増加とともにNGDPD・PPPSHも増加している
-    - 2020年まで輸出額増加とともにNGDPD・PPPSHも増加している
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Asia.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -134,8 +134,9 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_East_Asia.html' width='100%' height='600'></iframe> -->
 
 ### 東南アジア
-各種結果からわかることは
+以下の各種結果からわかることは
 - 
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_East_Asia.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -155,6 +156,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_East_Asia.html' width='100%' height='600'></iframe> -->
 
 ### 南アジア・西アジア
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_and_West_Asia.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -174,6 +176,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_and_West_Asia.html' width='100%' height='600'></iframe> -->
 
 ### アフリカ(北半球)
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -193,6 +196,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_Africa_Northern_Hemisphere.html' width='100%' height='600'></iframe> -->
 
 ### アフリカ(南半球)
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_Africa_Southern_Hemisphere.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -213,6 +217,7 @@
 
 
 ### 北米〜南米
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_and_South_America.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -232,6 +237,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_and_South_America.html' width='100%' height='600'></iframe> -->
 
 ### 北ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_North_Europa.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -251,6 +257,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_North_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 南ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_South_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_South_Europa.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -270,6 +277,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_South_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 西ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
@@ -289,6 +297,7 @@
 <!-- <iframe src='https://kentokodama214.github.io/python-pj/PPPSH_vs_Export_West_Europa.html' width='100%' height='600'></iframe> -->
 
 ### 東ヨーロッパ
+<iframe src='https://kentokodama214.github.io/python-pj/PopTotal_East_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_East_Europa.html' width='100%' height='600'></iframe>
 <!-- 特段、傾向が見られた訳ではないため、省略 -->
