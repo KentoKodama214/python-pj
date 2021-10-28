@@ -384,14 +384,19 @@
 
 ### 西ヨーロッパ
 以下の各種結果からわかることは、
-- 総人口は
+- 総人口は<font color="Blue">いずれの国も2020年以降は横ばいからやや緩やかに減少する</font>
 - 労働所得は
-- 輸出入額は
-- 日本の輸出入額と比較すると、
-- NGDPDは
-- 日本のNGDPDと比較すると、
-- PPPSHは
-- 日本のPPPSHと比較すると、
+    - <font color="Red">いずれの国も日本の労働所得より高く、特にスイスは日本の1.4倍程度ある</font>
+    - スイスは増加と減少を繰り返して高い水準を維持している
+    - スイス以外の国は2017年にかけて減少している
+- 輸出入額は、
+    - ドイツ・フランス・ベルギーは増加と減少を繰り返して停滞している
+    - オランダとスイスは増加と減少を繰り返しながら徐々に増加している
+- 日本の輸出入額と比較すると、<font color="Red">ドイツは日本の2倍程度</font>で、オランダは日本と同等、フランス・ベルギー・スイスは日本よりわずかに低い
+- <font color="Red">NGDPDはいずれの国も2015年から2026年にかけて増加している</font>
+- 日本のNGDPDと比較すると、ドイツは日本よりわずかに低く、<font color="Blue">フランスは日本の2分の1程度で、オランダ・スイス・ベルギーは日本の6分の1以下である</font>
+- <font color="Blue">PPPSHはいずれの国も年々減少している</font>
+- 日本のPPPSHと比較すると、ドイツは日本と同等、フランスは日本よりわずかに低く、<font color="Blue">オランダ・スイス・ベルギーは日本の3分の1以下である</font>
 <iframe src='https://kentokodama214.github.io/python-pj/PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/LabourIncome_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
 <iframe src='https://kentokodama214.github.io/python-pj/Import_vs_PopTotal_West_Europa.html' width='100%' height='600'></iframe>
