@@ -249,6 +249,18 @@ def main():
         future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"Export": "輸出額", "PPPSH": "PPPSH"}, countries = ["Germany", "Belgium", "France", "Switzerland", "Netherlands"], filename = "PPPSH_vs_Export_West_Europa"))
         future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"Export": "輸出額", "PPPSH": "PPPSH"}, countries = ["Russian Federation", "Ukraine", "Poland", "Romania"], filename = "PPPSH_vs_Export_East_Europa"))
 
+        # 各エリアでのNGDPDとPPPSHの推移
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Japan", "China"], filename = "PPPSH_vs_NGDPD_East_Asia"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Indonesia", "Philippines", "Thailand", "Viet Nam", "Singapore", "Malaysia"], filename = "PPPSH_vs_NGDPD_South_East_Asia"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Bangladesh", "India", "Pakistan", "Turkey"], filename = "PPPSH_vs_NGDPD_South_and_West_Asia"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Egypt", "Ethiopia", "Nigeria", "Niger"], filename = "PPPSH_vs_NGDPD_Africa_Northern_Hemisphere"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Kenya", "South Africa", "Democratic Republic of the Congo", "United Republic of Tanzania"], filename = "PPPSH_vs_NGDPD_Africa_Southern_Hemisphere"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["United States of America", "Brazil", "Mexico", "Canada"], filename = "PPPSH_vs_NGDPD_North_and_South_America"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Sweden", "United Kingdom", "Norway", "Iceland", "Ireland", "Denmark"], filename = "PPPSH_vs_NGDPD_North_Europa"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Italy", "Spain", "Portugal", "Greece"], filename = "PPPSH_vs_NGDPD_South_Europa"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Germany", "Belgium", "France", "Switzerland", "Netherlands"], filename = "PPPSH_vs_NGDPD_West_Europa"))
+        future_list.append(executor.submit(analysisData.plot_connected_scatter_countries, target_dict = {"NGDPD": "NGDPD", "PPPSH": "PPPSH"}, countries = ["Russian Federation", "Ukraine", "Poland", "Romania"], filename = "PPPSH_vs_NGDPD_East_Europa"))
+
         _ = futures.as_completed(fs=future_list)
 
     logging.debug("End")
