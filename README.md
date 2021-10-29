@@ -19,7 +19,11 @@ pythonでのデータ分析・機械学習を実践するためのリポジト�
 |python|3.9.6|```brew install python```|
 |MySQL|8.0.26|```brew install mysql```|
 |pandas|1.3.1|```pip install pandas```|
-|PyMySQL||```pip install PyMySQL```|
+|PyMySQL|1.0.2|```pip install PyMySQL```|
+|scikit-learn|0.24.2|```pip install scikit-learn```|
+|plotly|5.2.2|```pip install plotly```|
+|numpy|1.21.2|```pip install numpy```|
+|seaborn|0.11.2|```pip install seaborn```|
 
 ### ディレクトリ構成
 [こちら](https://github.com/KentoKodama214/python-pj/wiki/%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)を参照ください。
